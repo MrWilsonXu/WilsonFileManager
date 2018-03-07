@@ -47,6 +47,7 @@
 		6EA3325CE63662FB9BB14A85 /* Pods-WilsonFileManagerUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WilsonFileManagerUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WilsonFileManagerUITests/Pods-WilsonFileManagerUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		88CD8F9037F72DE1BA1BD126 /* Pods-WilsonFileManagerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WilsonFileManagerTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-WilsonFileManagerTests/Pods-WilsonFileManagerTests.release.xcconfig"; sourceTree = "<group>"; };
 		9D8AC71709229C18100FC901 /* Pods-WilsonFileManagerUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WilsonFileManagerUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-WilsonFileManagerUITests/Pods-WilsonFileManagerUITests.release.xcconfig"; sourceTree = "<group>"; };
+		C878AED5204FE88100823AF9 /* Macro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Macro.h; sourceTree = "<group>"; };
 		C8BF29B0204FB935008E4595 /* WilsonFileManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WilsonFileManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C8BF29B3204FB935008E4595 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C8BF29B4204FB935008E4595 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -142,6 +143,7 @@
 				C8BF29C1204FB935008E4595 /* Info.plist */,
 				C8BF29C2204FB935008E4595 /* main.m */,
 				C8BF29EE204FC6F2008E4595 /* PrefixHeader.pch */,
+				C878AED5204FE88100823AF9 /* Macro.h */,
 			);
 			path = WilsonFileManager;
 			sourceTree = "<group>";

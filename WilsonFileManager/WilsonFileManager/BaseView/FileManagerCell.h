@@ -10,4 +10,10 @@
 
 @interface FileManagerCell : UITableViewCell
 
+@property (assign, nonatomic) BOOL showMore;
+@property (copy, nonatomic) NSString *titleContent;
+@property (copy, nonatomic) NSString *timeContent;
+@property (copy, nonatomic) NSString *sizeContent;
+@property (copy, nonatomic) NSString *imgStr;
+
 @end
