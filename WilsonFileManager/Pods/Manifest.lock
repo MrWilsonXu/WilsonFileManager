@@ -1,0 +1,17 @@
+PODS:
+  - GCDWebServer (3.4.2):
+    - GCDWebServer/Core (= 3.4.2)
+  - GCDWebServer/Core (3.4.2)
+  - Masonry (1.1.0)
+
+DEPENDENCIES:
+  - GCDWebServer (~> 3.4.2)
+  - Masonry (~> 1.1.0)
+
+SPEC CHECKSUMS:
+  GCDWebServer: 8d67ee9f634b4bb91eb4b8aee440318a5fc6debd
+  Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
+
+PODFILE CHECKSUM: 672a5fe05a72d71cf05ea14c32c8c037fde64a50
+
+COCOAPODS: 1.4.0

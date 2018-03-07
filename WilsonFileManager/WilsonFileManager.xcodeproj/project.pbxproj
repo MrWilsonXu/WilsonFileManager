@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3BB5B21FEEDA709FB86E6CE3 /* libPods-WilsonFileManagerTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 630B15A6848F651D6A79C0FC /* libPods-WilsonFileManagerTests.a */; };
+		8FF24BE0FBD808C03817C8FF /* libPods-WilsonFileManager.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 421D21E4FA3E3EF455BD6389 /* libPods-WilsonFileManager.a */; };
+		9198F84C29151B79C5E2E401 /* libPods-WilsonFileManagerUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D614D61D5AE922D5B1644DB9 /* libPods-WilsonFileManagerUITests.a */; };
 		C8BF29B5204FB935008E4595 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C8BF29B4204FB935008E4595 /* AppDelegate.m */; };
 		C8BF29B8204FB935008E4595 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8BF29B7204FB935008E4595 /* ViewController.m */; };
 		C8BF29BB204FB935008E4595 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C8BF29B9204FB935008E4595 /* Main.storyboard */; };
@@ -35,6 +38,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		421D21E4FA3E3EF455BD6389 /* libPods-WilsonFileManager.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WilsonFileManager.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5F0EE11EFED4B6C2A36537AD /* Pods-WilsonFileManager.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WilsonFileManager.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WilsonFileManager/Pods-WilsonFileManager.debug.xcconfig"; sourceTree = "<group>"; };
+		630B15A6848F651D6A79C0FC /* libPods-WilsonFileManagerTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WilsonFileManagerTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6EA3325CE63662FB9BB14A85 /* Pods-WilsonFileManagerUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WilsonFileManagerUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WilsonFileManagerUITests/Pods-WilsonFileManagerUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		88CD8F9037F72DE1BA1BD126 /* Pods-WilsonFileManagerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WilsonFileManagerTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-WilsonFileManagerTests/Pods-WilsonFileManagerTests.release.xcconfig"; sourceTree = "<group>"; };
+		9D8AC71709229C18100FC901 /* Pods-WilsonFileManagerUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WilsonFileManagerUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-WilsonFileManagerUITests/Pods-WilsonFileManagerUITests.release.xcconfig"; sourceTree = "<group>"; };
 		C8BF29B0204FB935008E4595 /* WilsonFileManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WilsonFileManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C8BF29B3204FB935008E4595 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C8BF29B4204FB935008E4595 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -51,6 +60,9 @@
 		C8BF29D3204FB935008E4595 /* WilsonFileManagerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WilsonFileManagerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C8BF29D7204FB935008E4595 /* WilsonFileManagerUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WilsonFileManagerUITests.m; sourceTree = "<group>"; };
 		C8BF29D9204FB935008E4595 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D614D61D5AE922D5B1644DB9 /* libPods-WilsonFileManagerUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WilsonFileManagerUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DEB4F29AD62CEF20CA485E17 /* Pods-WilsonFileManagerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WilsonFileManagerTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WilsonFileManagerTests/Pods-WilsonFileManagerTests.debug.xcconfig"; sourceTree = "<group>"; };
+		FD0BB9EEE75FDDAA9E4E4510 /* Pods-WilsonFileManager.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WilsonFileManager.release.xcconfig"; path = "Pods/Target Support Files/Pods-WilsonFileManager/Pods-WilsonFileManager.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +70,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8FF24BE0FBD808C03817C8FF /* libPods-WilsonFileManager.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +78,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3BB5B21FEEDA709FB86E6CE3 /* libPods-WilsonFileManagerTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,6 +86,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9198F84C29151B79C5E2E401 /* libPods-WilsonFileManagerUITests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,6 +100,8 @@
 				C8BF29CB204FB935008E4595 /* WilsonFileManagerTests */,
 				C8BF29D6204FB935008E4595 /* WilsonFileManagerUITests */,
 				C8BF29B1204FB935008E4595 /* Products */,
+				D52B1443CA508DD797ACDBC3 /* Pods */,
+				CBA94AB60C2DE9E868EA4511 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -132,6 +149,29 @@
 			path = WilsonFileManagerUITests;
 			sourceTree = "<group>";
 		};
+		CBA94AB60C2DE9E868EA4511 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				421D21E4FA3E3EF455BD6389 /* libPods-WilsonFileManager.a */,
+				630B15A6848F651D6A79C0FC /* libPods-WilsonFileManagerTests.a */,
+				D614D61D5AE922D5B1644DB9 /* libPods-WilsonFileManagerUITests.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D52B1443CA508DD797ACDBC3 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5F0EE11EFED4B6C2A36537AD /* Pods-WilsonFileManager.debug.xcconfig */,
+				FD0BB9EEE75FDDAA9E4E4510 /* Pods-WilsonFileManager.release.xcconfig */,
+				DEB4F29AD62CEF20CA485E17 /* Pods-WilsonFileManagerTests.debug.xcconfig */,
+				88CD8F9037F72DE1BA1BD126 /* Pods-WilsonFileManagerTests.release.xcconfig */,
+				6EA3325CE63662FB9BB14A85 /* Pods-WilsonFileManagerUITests.debug.xcconfig */,
+				9D8AC71709229C18100FC901 /* Pods-WilsonFileManagerUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -139,9 +179,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C8BF29DC204FB935008E4595 /* Build configuration list for PBXNativeTarget "WilsonFileManager" */;
 			buildPhases = (
+				DFDB0296A70CC1C28325C633 /* [CP] Check Pods Manifest.lock */,
 				C8BF29AC204FB935008E4595 /* Sources */,
 				C8BF29AD204FB935008E4595 /* Frameworks */,
 				C8BF29AE204FB935008E4595 /* Resources */,
+				18CA2DE4FC4DF4353591A244 /* [CP] Embed Pods Frameworks */,
+				0E03C838B996583E30D0F805 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -156,9 +199,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C8BF29DF204FB935008E4595 /* Build configuration list for PBXNativeTarget "WilsonFileManagerTests" */;
 			buildPhases = (
+				980EC87E21A37DFB71F34DDB /* [CP] Check Pods Manifest.lock */,
 				C8BF29C4204FB935008E4595 /* Sources */,
 				C8BF29C5204FB935008E4595 /* Frameworks */,
 				C8BF29C6204FB935008E4595 /* Resources */,
+				D198F518AAFBDA6A1C936C87 /* [CP] Embed Pods Frameworks */,
+				950D2D81DE6F659989F480B5 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -174,9 +220,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C8BF29E2204FB935008E4595 /* Build configuration list for PBXNativeTarget "WilsonFileManagerUITests" */;
 			buildPhases = (
+				C0E459640A3BCDDC9E35B655 /* [CP] Check Pods Manifest.lock */,
 				C8BF29CF204FB935008E4595 /* Sources */,
 				C8BF29D0204FB935008E4595 /* Frameworks */,
 				C8BF29D1204FB935008E4595 /* Resources */,
+				C20B8C325E2FB686FBFFC0CF /* [CP] Embed Pods Frameworks */,
+				9BDCE306A4B027F2D9C26908 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -259,6 +308,153 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0E03C838B996583E30D0F805 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WilsonFileManager/Pods-WilsonFileManager-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		18CA2DE4FC4DF4353591A244 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WilsonFileManager/Pods-WilsonFileManager-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		950D2D81DE6F659989F480B5 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WilsonFileManagerTests/Pods-WilsonFileManagerTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		980EC87E21A37DFB71F34DDB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-WilsonFileManagerTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9BDCE306A4B027F2D9C26908 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WilsonFileManagerUITests/Pods-WilsonFileManagerUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C0E459640A3BCDDC9E35B655 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-WilsonFileManagerUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C20B8C325E2FB686FBFFC0CF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WilsonFileManagerUITests/Pods-WilsonFileManagerUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D198F518AAFBDA6A1C936C87 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WilsonFileManagerTests/Pods-WilsonFileManagerTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DFDB0296A70CC1C28325C633 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-WilsonFileManager-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		C8BF29AC204FB935008E4595 /* Sources */ = {
@@ -428,6 +624,7 @@
 		};
 		C8BF29DD204FB935008E4595 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5F0EE11EFED4B6C2A36537AD /* Pods-WilsonFileManager.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -442,6 +639,7 @@
 		};
 		C8BF29DE204FB935008E4595 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FD0BB9EEE75FDDAA9E4E4510 /* Pods-WilsonFileManager.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -456,6 +654,7 @@
 		};
 		C8BF29E0204FB935008E4595 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DEB4F29AD62CEF20CA485E17 /* Pods-WilsonFileManagerTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -471,6 +670,7 @@
 		};
 		C8BF29E1204FB935008E4595 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 88CD8F9037F72DE1BA1BD126 /* Pods-WilsonFileManagerTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -486,6 +686,7 @@
 		};
 		C8BF29E3204FB935008E4595 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6EA3325CE63662FB9BB14A85 /* Pods-WilsonFileManagerUITests.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2W77NDA9H2;
@@ -500,6 +701,7 @@
 		};
 		C8BF29E4204FB935008E4595 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9D8AC71709229C18100FC901 /* Pods-WilsonFileManagerUITests.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2W77NDA9H2;
