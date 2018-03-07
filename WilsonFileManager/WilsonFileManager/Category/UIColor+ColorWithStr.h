@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  UIColor+colorWithStr.h
 //  WilsonFileManager
 //
 //  Created by Wilson on 07/03/2018.
@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface UIColor (ColorWithStr)
 
++ (UIColor *)ColorWithHex:(NSString *)string;
 
 @end
-
