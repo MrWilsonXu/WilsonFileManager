@@ -78,11 +78,11 @@
 
 - (void)layoutCustomViews {
     __block CGFloat margin = 15;
-    CGFloat imgViewWidthHeight = 50;
+    CGFloat imgViewWidthHeight = 40;
     
     [self.moreImgView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(20);
-        make.right.mas_equalTo(-margin);
+        make.right.mas_equalTo(-10);
         make.width.height.mas_equalTo(20);
     }];
     
@@ -94,20 +94,20 @@
     [self.titleLab mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(margin);
         make.left.equalTo(self.imgView.mas_right).offset(8);
-        make.right.equalTo(self.moreImgView.mas_left).offset(5);
+        make.right.equalTo(self.moreImgView.mas_left).offset(0);
     }];
     
     [self.fileSizeLab mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.titleLab.mas_bottom).offset(5);
         make.width.mas_equalTo(60);
-        make.right.equalTo(self.moreImgView.mas_left).offset(5);
+        make.right.equalTo(self.moreImgView.mas_left).offset(0);
         make.height.mas_equalTo(15);
     }];
     
     [self.timeLab mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.titleLab.mas_bottom).offset(5);
-        make.left.equalTo(self.imgView.mas_right).offset(5);
-        make.right.equalTo(self.moreImgView.mas_left).offset(5);
+        make.left.equalTo(self.imgView.mas_right).offset(8);
+        make.right.equalTo(self.fileSizeLab.mas_left).offset(0);
         make.height.mas_equalTo(15);
         make.bottom.mas_equalTo(-margin);
     }];
@@ -169,7 +169,7 @@
         self.fileSizeLab = [[UILabel alloc] init];
         _fileSizeLab.font = kSubTitleFont;
         _fileSizeLab.textColor = kSubTitleColor;
-        [_fileSizeLab sizeToFit];
+        _fileSizeLab.textAlignment = NSTextAlignmentRight;
     }
     return _fileSizeLab;
 }

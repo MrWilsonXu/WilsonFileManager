@@ -7,7 +7,10 @@ target 'WilsonFileManager' do
 
   # Pods for WilsonFileManager
   pod 'Masonry', '~> 1.1.0'
-  pod 'GCDWebServer', '~> 3.4.2'
+  pod 'GCDWebServer/WebUploader', '~> 3.4.2'
+  pod 'GCDWebServer/Core', '~> 3.4.2'
+  pod 'GCDWebServer/WebDAV', '~> 3.4.2'
+  pod 'MJExtension', '~> 3.0.13'
 
   target 'WilsonFileManagerTests' do
     inherit! :search_paths

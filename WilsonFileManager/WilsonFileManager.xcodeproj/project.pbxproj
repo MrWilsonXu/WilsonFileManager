@@ -11,6 +11,10 @@
 		8FF24BE0FBD808C03817C8FF /* libPods-WilsonFileManager.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 421D21E4FA3E3EF455BD6389 /* libPods-WilsonFileManager.a */; };
 		9198F84C29151B79C5E2E401 /* libPods-WilsonFileManagerUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D614D61D5AE922D5B1644DB9 /* libPods-WilsonFileManagerUITests.a */; };
 		C8AD10792050DA0B00283456 /* WilsonWebServer.m in Sources */ = {isa = PBXBuildFile; fileRef = C8AD10782050DA0B00283456 /* WilsonWebServer.m */; };
+		C8AD107B2050E23100283456 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C8AD107A2050E23100283456 /* libz.tbd */; };
+		C8AD107F2051154E00283456 /* WilsonFileModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C8AD107E2051154E00283456 /* WilsonFileModel.m */; };
+		C8AD108220511B7100283456 /* NSFileManager+FileInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = C8AD108120511B7100283456 /* NSFileManager+FileInfo.m */; };
+		C8AD108520514D0700283456 /* WilsonPreviewVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C8AD108420514D0700283456 /* WilsonPreviewVC.m */; };
 		C8BF29B5204FB935008E4595 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C8BF29B4204FB935008E4595 /* AppDelegate.m */; };
 		C8BF29BB204FB935008E4595 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C8BF29B9204FB935008E4595 /* Main.storyboard */; };
 		C8BF29BD204FB935008E4595 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C8BF29BC204FB935008E4595 /* Assets.xcassets */; };
@@ -51,6 +55,13 @@
 		C878AED5204FE88100823AF9 /* Macro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Macro.h; sourceTree = "<group>"; };
 		C8AD10772050DA0B00283456 /* WilsonWebServer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WilsonWebServer.h; sourceTree = "<group>"; };
 		C8AD10782050DA0B00283456 /* WilsonWebServer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WilsonWebServer.m; sourceTree = "<group>"; };
+		C8AD107A2050E23100283456 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		C8AD107D2051154E00283456 /* WilsonFileModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WilsonFileModel.h; sourceTree = "<group>"; };
+		C8AD107E2051154E00283456 /* WilsonFileModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WilsonFileModel.m; sourceTree = "<group>"; };
+		C8AD108020511B7100283456 /* NSFileManager+FileInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSFileManager+FileInfo.h"; sourceTree = "<group>"; };
+		C8AD108120511B7100283456 /* NSFileManager+FileInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSFileManager+FileInfo.m"; sourceTree = "<group>"; };
+		C8AD108320514D0700283456 /* WilsonPreviewVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WilsonPreviewVC.h; sourceTree = "<group>"; };
+		C8AD108420514D0700283456 /* WilsonPreviewVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WilsonPreviewVC.m; sourceTree = "<group>"; };
 		C8BF29B0204FB935008E4595 /* WilsonFileManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WilsonFileManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C8BF29B3204FB935008E4595 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C8BF29B4204FB935008E4595 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -84,6 +95,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C8AD107B2050E23100283456 /* libz.tbd in Frameworks */,
 				8FF24BE0FBD808C03817C8FF /* libPods-WilsonFileManager.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -114,6 +126,15 @@
 				C8AD10782050DA0B00283456 /* WilsonWebServer.m */,
 			);
 			path = WilsonManager;
+			sourceTree = "<group>";
+		};
+		C8AD107C2051153E00283456 /* WilsonModel */ = {
+			isa = PBXGroup;
+			children = (
+				C8AD107D2051154E00283456 /* WilsonFileModel.h */,
+				C8AD107E2051154E00283456 /* WilsonFileModel.m */,
+			);
+			path = WilsonModel;
 			sourceTree = "<group>";
 		};
 		C8BF29A7204FB935008E4595 = {
@@ -147,7 +168,10 @@
 				C8BF29E8204FC531008E4595 /* WilsonTabBarVC.m */,
 				C8BF29EF204FC9BC008E4595 /* FileManagerVC.h */,
 				C8BF29F0204FC9BC008E4595 /* FileManagerVC.m */,
+				C8AD108320514D0700283456 /* WilsonPreviewVC.h */,
+				C8AD108420514D0700283456 /* WilsonPreviewVC.m */,
 				C8BF29B9204FB935008E4595 /* Main.storyboard */,
+				C8AD107C2051153E00283456 /* WilsonModel */,
 				C8AD10762050D8AA00283456 /* WilsonManager */,
 				C8BF29F2204FCF06008E4595 /* BaseView */,
 				C8BF29EA204FC612008E4595 /* Category */,
@@ -184,6 +208,8 @@
 			children = (
 				C8BF29EB204FC6C4008E4595 /* UIColor+ColorWithStr.h */,
 				C8BF29EC204FC6C4008E4595 /* UIColor+ColorWithStr.m */,
+				C8AD108020511B7100283456 /* NSFileManager+FileInfo.h */,
+				C8AD108120511B7100283456 /* NSFileManager+FileInfo.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -200,6 +226,7 @@
 		CBA94AB60C2DE9E868EA4511 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C8AD107A2050E23100283456 /* libz.tbd */,
 				421D21E4FA3E3EF455BD6389 /* libPods-WilsonFileManager.a */,
 				630B15A6848F651D6A79C0FC /* libPods-WilsonFileManagerTests.a */,
 				D614D61D5AE922D5B1644DB9 /* libPods-WilsonFileManagerUITests.a */,
@@ -364,9 +391,12 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-WilsonFileManager/Pods-WilsonFileManager-resources.sh",
+				"${PODS_ROOT}/GCDWebServer/GCDWebUploader/GCDWebUploader.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GCDWebUploader.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -510,10 +540,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				C8BF29E9204FC531008E4595 /* WilsonTabBarVC.m in Sources */,
+				C8AD107F2051154E00283456 /* WilsonFileModel.m in Sources */,
 				C8BF29F1204FC9BC008E4595 /* FileManagerVC.m in Sources */,
+				C8AD108520514D0700283456 /* WilsonPreviewVC.m in Sources */,
 				C8BF29C3204FB935008E4595 /* main.m in Sources */,
 				C8BF29F5204FCF1E008E4595 /* FileManagerCell.m in Sources */,
 				C8BF29ED204FC6C4008E4595 /* UIColor+ColorWithStr.m in Sources */,
+				C8AD108220511B7100283456 /* NSFileManager+FileInfo.m in Sources */,
 				C8BF29B5204FB935008E4595 /* AppDelegate.m in Sources */,
 				C8AD10792050DA0B00283456 /* WilsonWebServer.m in Sources */,
 			);

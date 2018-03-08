@@ -7,7 +7,21 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "WilsonFileModel.h"
+
+@protocol WilsonWebServerDelegate;
 
 @interface WilsonWebServer : NSObject
+
++ (instancetype)sharedManager;
+- (void)initWilsonWebServerDelegateObj:(id)delegateObj fileName:(NSString *)fileName;
+- (void)webServerStart;
+- (void)webServerStop;
+
+@end
+
+@protocol WilsonWebServerDelegate <NSObject>
+
+- (void)webServerileDataSource:(NSMutableArray <WilsonFileModel *> *)dataSource;
 
 @end

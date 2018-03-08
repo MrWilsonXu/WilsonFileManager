@@ -7,11 +7,21 @@
 //
 
 #import "FileManagerVC.h"
-#import "FileManagerCell.h"
+#import "WilsonPreviewVC.h"
 
-@interface FileManagerVC ()<UITableViewDelegate, UITableViewDataSource>
+#import "FileManagerCell.h"
+#import "WilsonWebServer.h"
+#import "WilsonFileModel.h"
+
+@interface FileManagerVC ()<UITableViewDelegate, UITableViewDataSource, WilsonWebServerDelegate>
 
 @property (strong, nonatomic) UITableView *tableView;
+
+@property (strong, nonatomic) UILabel *IPAdress;
+
+@property (strong, nonatomic) WilsonWebServer *webServer;
+
+@property (strong, nonatomic) NSMutableArray <WilsonFileModel *> *dataSource;
 
 @end
 
@@ -20,29 +30,61 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = @"File Manager";
+    
     self.view.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:self.tableView];
+    [self.view addSubview:self.IPAdress];
     
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self.view);
     }];
+
+    [self.IPAdress mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(0);
+        make.right.mas_equalTo(0);
+        make.bottom.mas_equalTo(0);
+        make.height.mas_equalTo(20);
+    }];
     
+    [self.tableView reloadData];
+    
+    self.webServer = [WilsonWebServer sharedManager];
+    [self.webServer initWilsonWebServerDelegateObj:self fileName:@"Wilson"];
+    [self.webServer webServerStart];
+}
+
+#pragma mark - WilsonWebServerDelegate
+
+- (void)webServerileDataSource:(NSMutableArray <WilsonFileModel *> *)dataSource {
+    self.dataSource = [NSMutableArray arrayWithArray:dataSource];
     [self.tableView reloadData];
 }
 
 #pragma mark - UITableView Method
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 10;
+    return self.dataSource.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    WilsonFileModel *model = self.dataSource[indexPath.row];
+    
     FileManagerCell *cell = [tableView dequeueReusableCellWithIdentifier:CellReuse];
-    cell.titleContent = @"水电费看见克里这架飞机速度快的看法就开始叫客服就开始京东方科技速度快解放康师傅";
-    cell.timeContent = @"2018-3-7 10:34";
+    cell.titleContent = model.fileName;
+    cell.timeContent = model.createDate;
     cell.imgStr = @"audio_cover";
-    cell.sizeContent = @"56MB";
+    cell.sizeContent = model.fileSize;
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    WilsonFileModel *model = self.dataSource[indexPath.row];
+    NSURL *url = [NSURL fileURLWithPath:model.wholePath];
+
+    WilsonPreviewVC *vc = [[WilsonPreviewVC alloc] init];
+    vc.url = url;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 #pragma mark - Getter
@@ -58,6 +100,22 @@
         [_tableView registerClass:[FileManagerCell class] forCellReuseIdentifier:CellReuse];
     }
     return _tableView;
+}
+
+- (NSMutableArray<WilsonFileModel *> *)dataSource {
+    if (!_dataSource) {
+        self.dataSource = [NSMutableArray <WilsonFileModel *> array];
+    }
+    return _dataSource;
+}
+
+- (UILabel *)IPAdress {
+    if (!_IPAdress) {
+        self.IPAdress = [[UILabel alloc] init];
+        _IPAdress.textColor = kTitleColor;
+        _IPAdress.font = kTitleFont;
+    }
+    return _IPAdress;
 }
 
 - (void)didReceiveMemoryWarning {

@@ -15,5 +15,6 @@
 #import "UIColor+ColorWithStr.h"
 #import "Masonry.h"
 #import "Macro.h"
+#import "MJExtension.h"
 
 #endif /* PrefixHeader_pch */
