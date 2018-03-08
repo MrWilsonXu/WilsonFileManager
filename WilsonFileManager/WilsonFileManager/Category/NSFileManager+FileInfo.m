@@ -129,6 +129,7 @@
                [upper isEqualToString:@"CSV"] ||
                [upper isEqualToString:@"EPS"] ||
                [upper isEqualToString:@"EXE"] ||
+               [upper isEqualToString:@"URL"] ||
                [upper isEqualToString:@"FLASH"] ||
                [upper isEqualToString:@"HTML"] ) {
         

@@ -8,6 +8,7 @@
 
 #import "FileManagerVC.h"
 #import "WilsonPreviewVC.h"
+#import "WilsonWebVC.h"
 
 #import "FileManagerCell.h"
 #import "WilsonWebServer.h"
@@ -32,6 +33,7 @@
     [super viewDidLoad];
     self.title = @"File Manager";
     
+    self.edgesForExtendedLayout = UIRectEdgeNone;
     self.view.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:self.tableView];
     [self.view addSubview:self.IPAdress];
@@ -41,7 +43,7 @@
     }];
 
     [self.IPAdress mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(0);
+        make.left.mas_equalTo(15);
         make.right.mas_equalTo(0);
         make.bottom.mas_equalTo(0);
         make.height.mas_equalTo(20);
@@ -56,9 +58,13 @@
 
 #pragma mark - WilsonWebServerDelegate
 
-- (void)webServerileDataSource:(NSMutableArray <WilsonFileModel *> *)dataSource {
+- (void)webServerDataSource:(NSMutableArray <WilsonFileModel *> *)dataSource {
     self.dataSource = [NSMutableArray arrayWithArray:dataSource];
     [self.tableView reloadData];
+}
+
+- (void)webServerIpAdress:(NSString *)ipAdress {
+    self.IPAdress.text = ipAdress;
 }
 
 #pragma mark - UITableView Method
@@ -81,10 +87,18 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     WilsonFileModel *model = self.dataSource[indexPath.row];
     NSURL *url = [NSURL fileURLWithPath:model.wholePath];
-
-    WilsonPreviewVC *vc = [[WilsonPreviewVC alloc] init];
-    vc.url = url;
-    [self.navigationController pushViewController:vc animated:YES];
+    
+    if (model.fileType == WilonFileTypeDocument || model.fileType == WilonFileTypeImage) {
+        WilsonPreviewVC *vc = [[WilsonPreviewVC alloc] init];
+        vc.url = url;
+        [self.navigationController pushViewController:vc animated:YES];
+    } else if (model.fileType == WilonFileTypeFolder) {
+        
+    } else {
+        WilsonWebVC *webVC = [[WilsonWebVC alloc] init];
+        webVC.webUrl = url;
+        [self.navigationController pushViewController:webVC animated:YES];
+    }
 }
 
 #pragma mark - Getter

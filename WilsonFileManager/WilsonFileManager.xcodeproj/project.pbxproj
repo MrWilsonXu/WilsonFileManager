@@ -10,6 +10,9 @@
 		3BB5B21FEEDA709FB86E6CE3 /* libPods-WilsonFileManagerTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 630B15A6848F651D6A79C0FC /* libPods-WilsonFileManagerTests.a */; };
 		8FF24BE0FBD808C03817C8FF /* libPods-WilsonFileManager.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 421D21E4FA3E3EF455BD6389 /* libPods-WilsonFileManager.a */; };
 		9198F84C29151B79C5E2E401 /* libPods-WilsonFileManagerUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D614D61D5AE922D5B1644DB9 /* libPods-WilsonFileManagerUITests.a */; };
+		C8792CFD20518F6400F7260D /* WilsonWebVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C8792CFC20518F6400F7260D /* WilsonWebVC.m */; };
+		C8792CFF20518F7600F7260D /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8792CFE20518F7600F7260D /* WebKit.framework */; };
+		C8792D01205196EF00F7260D /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8792D00205196EF00F7260D /* MobileCoreServices.framework */; };
 		C8AD10792050DA0B00283456 /* WilsonWebServer.m in Sources */ = {isa = PBXBuildFile; fileRef = C8AD10782050DA0B00283456 /* WilsonWebServer.m */; };
 		C8AD107B2050E23100283456 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C8AD107A2050E23100283456 /* libz.tbd */; };
 		C8AD107F2051154E00283456 /* WilsonFileModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C8AD107E2051154E00283456 /* WilsonFileModel.m */; };
@@ -53,6 +56,10 @@
 		88CD8F9037F72DE1BA1BD126 /* Pods-WilsonFileManagerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WilsonFileManagerTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-WilsonFileManagerTests/Pods-WilsonFileManagerTests.release.xcconfig"; sourceTree = "<group>"; };
 		9D8AC71709229C18100FC901 /* Pods-WilsonFileManagerUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WilsonFileManagerUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-WilsonFileManagerUITests/Pods-WilsonFileManagerUITests.release.xcconfig"; sourceTree = "<group>"; };
 		C878AED5204FE88100823AF9 /* Macro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Macro.h; sourceTree = "<group>"; };
+		C8792CFB20518F6400F7260D /* WilsonWebVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WilsonWebVC.h; sourceTree = "<group>"; };
+		C8792CFC20518F6400F7260D /* WilsonWebVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WilsonWebVC.m; sourceTree = "<group>"; };
+		C8792CFE20518F7600F7260D /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		C8792D00205196EF00F7260D /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		C8AD10772050DA0B00283456 /* WilsonWebServer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WilsonWebServer.h; sourceTree = "<group>"; };
 		C8AD10782050DA0B00283456 /* WilsonWebServer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WilsonWebServer.m; sourceTree = "<group>"; };
 		C8AD107A2050E23100283456 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
@@ -95,6 +102,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C8792D01205196EF00F7260D /* MobileCoreServices.framework in Frameworks */,
+				C8792CFF20518F7600F7260D /* WebKit.framework in Frameworks */,
 				C8AD107B2050E23100283456 /* libz.tbd in Frameworks */,
 				8FF24BE0FBD808C03817C8FF /* libPods-WilsonFileManager.a in Frameworks */,
 			);
@@ -170,6 +179,8 @@
 				C8BF29F0204FC9BC008E4595 /* FileManagerVC.m */,
 				C8AD108320514D0700283456 /* WilsonPreviewVC.h */,
 				C8AD108420514D0700283456 /* WilsonPreviewVC.m */,
+				C8792CFB20518F6400F7260D /* WilsonWebVC.h */,
+				C8792CFC20518F6400F7260D /* WilsonWebVC.m */,
 				C8BF29B9204FB935008E4595 /* Main.storyboard */,
 				C8AD107C2051153E00283456 /* WilsonModel */,
 				C8AD10762050D8AA00283456 /* WilsonManager */,
@@ -226,6 +237,8 @@
 		CBA94AB60C2DE9E868EA4511 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C8792D00205196EF00F7260D /* MobileCoreServices.framework */,
+				C8792CFE20518F7600F7260D /* WebKit.framework */,
 				C8AD107A2050E23100283456 /* libz.tbd */,
 				421D21E4FA3E3EF455BD6389 /* libPods-WilsonFileManager.a */,
 				630B15A6848F651D6A79C0FC /* libPods-WilsonFileManagerTests.a */,
@@ -545,6 +558,7 @@
 				C8AD108520514D0700283456 /* WilsonPreviewVC.m in Sources */,
 				C8BF29C3204FB935008E4595 /* main.m in Sources */,
 				C8BF29F5204FCF1E008E4595 /* FileManagerCell.m in Sources */,
+				C8792CFD20518F6400F7260D /* WilsonWebVC.m in Sources */,
 				C8BF29ED204FC6C4008E4595 /* UIColor+ColorWithStr.m in Sources */,
 				C8AD108220511B7100283456 /* NSFileManager+FileInfo.m in Sources */,
 				C8BF29B5204FB935008E4595 /* AppDelegate.m in Sources */,

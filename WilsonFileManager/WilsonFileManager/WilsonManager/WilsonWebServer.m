@@ -60,8 +60,11 @@ static WilsonWebServer *_wilsonWebServe = nil;
     [self.webServer start];
     [self initWebServerData];
 
-    NSString *port = [NSString stringWithFormat:NSLocalizedString(@"GCDWebServer running locally on port：\n%@", nil), self.webServer.serverURL.absoluteString];
-    NSLog(@"%@",port);
+    NSString *adress = [NSString stringWithFormat:NSLocalizedString(@"GCDWebServer running locally on port：\n%@", nil), self.webServer.serverURL.absoluteString];
+    if ([self.delegate respondsToSelector:@selector(webServerIpAdress:)]) {
+        [self.delegate webServerIpAdress:self.webServer.serverURL.absoluteString];
+    }
+    NSLog(@"%@",adress);
     NSLog(@"%@",self.superPath);
 }
 
@@ -105,8 +108,8 @@ static WilsonWebServer *_wilsonWebServe = nil;
 }
 
 - (void)sendDelegate {
-    if ([self.delegate respondsToSelector:@selector(webServerileDataSource:)]) {
-        [self.delegate webServerileDataSource:self.dataSource];
+    if ([self.delegate respondsToSelector:@selector(webServerDataSource:)]) {
+        [self.delegate webServerDataSource:self.dataSource];
     }
 }
 

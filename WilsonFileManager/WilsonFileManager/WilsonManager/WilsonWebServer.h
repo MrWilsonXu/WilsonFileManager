@@ -22,6 +22,8 @@
 
 @protocol WilsonWebServerDelegate <NSObject>
 
-- (void)webServerileDataSource:(NSMutableArray <WilsonFileModel *> *)dataSource;
+- (void)webServerDataSource:(NSMutableArray <WilsonFileModel *> *)dataSource;
+
+- (void)webServerIpAdress:(NSString *)ipAdress;
 
 @end
