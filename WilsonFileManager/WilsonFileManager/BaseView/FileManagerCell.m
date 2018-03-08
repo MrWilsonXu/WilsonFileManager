@@ -93,7 +93,7 @@
     
     [self.titleLab mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(margin);
-        make.left.equalTo(self.imgView.mas_right).offset(5);
+        make.left.equalTo(self.imgView.mas_right).offset(8);
         make.right.equalTo(self.moreImgView.mas_left).offset(5);
     }];
     

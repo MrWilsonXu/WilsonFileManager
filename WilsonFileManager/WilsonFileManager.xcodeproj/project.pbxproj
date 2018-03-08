@@ -10,6 +10,7 @@
 		3BB5B21FEEDA709FB86E6CE3 /* libPods-WilsonFileManagerTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 630B15A6848F651D6A79C0FC /* libPods-WilsonFileManagerTests.a */; };
 		8FF24BE0FBD808C03817C8FF /* libPods-WilsonFileManager.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 421D21E4FA3E3EF455BD6389 /* libPods-WilsonFileManager.a */; };
 		9198F84C29151B79C5E2E401 /* libPods-WilsonFileManagerUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D614D61D5AE922D5B1644DB9 /* libPods-WilsonFileManagerUITests.a */; };
+		C8AD10792050DA0B00283456 /* WilsonWebServer.m in Sources */ = {isa = PBXBuildFile; fileRef = C8AD10782050DA0B00283456 /* WilsonWebServer.m */; };
 		C8BF29B5204FB935008E4595 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C8BF29B4204FB935008E4595 /* AppDelegate.m */; };
 		C8BF29BB204FB935008E4595 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C8BF29B9204FB935008E4595 /* Main.storyboard */; };
 		C8BF29BD204FB935008E4595 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C8BF29BC204FB935008E4595 /* Assets.xcassets */; };
@@ -48,6 +49,8 @@
 		88CD8F9037F72DE1BA1BD126 /* Pods-WilsonFileManagerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WilsonFileManagerTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-WilsonFileManagerTests/Pods-WilsonFileManagerTests.release.xcconfig"; sourceTree = "<group>"; };
 		9D8AC71709229C18100FC901 /* Pods-WilsonFileManagerUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WilsonFileManagerUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-WilsonFileManagerUITests/Pods-WilsonFileManagerUITests.release.xcconfig"; sourceTree = "<group>"; };
 		C878AED5204FE88100823AF9 /* Macro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Macro.h; sourceTree = "<group>"; };
+		C8AD10772050DA0B00283456 /* WilsonWebServer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WilsonWebServer.h; sourceTree = "<group>"; };
+		C8AD10782050DA0B00283456 /* WilsonWebServer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WilsonWebServer.m; sourceTree = "<group>"; };
 		C8BF29B0204FB935008E4595 /* WilsonFileManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WilsonFileManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C8BF29B3204FB935008E4595 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C8BF29B4204FB935008E4595 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -104,6 +107,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C8AD10762050D8AA00283456 /* WilsonManager */ = {
+			isa = PBXGroup;
+			children = (
+				C8AD10772050DA0B00283456 /* WilsonWebServer.h */,
+				C8AD10782050DA0B00283456 /* WilsonWebServer.m */,
+			);
+			path = WilsonManager;
+			sourceTree = "<group>";
+		};
 		C8BF29A7204FB935008E4595 = {
 			isa = PBXGroup;
 			children = (
@@ -136,6 +148,7 @@
 				C8BF29EF204FC9BC008E4595 /* FileManagerVC.h */,
 				C8BF29F0204FC9BC008E4595 /* FileManagerVC.m */,
 				C8BF29B9204FB935008E4595 /* Main.storyboard */,
+				C8AD10762050D8AA00283456 /* WilsonManager */,
 				C8BF29F2204FCF06008E4595 /* BaseView */,
 				C8BF29EA204FC612008E4595 /* Category */,
 				C8BF29BC204FB935008E4595 /* Assets.xcassets */,
@@ -502,6 +515,7 @@
 				C8BF29F5204FCF1E008E4595 /* FileManagerCell.m in Sources */,
 				C8BF29ED204FC6C4008E4595 /* UIColor+ColorWithStr.m in Sources */,
 				C8BF29B5204FB935008E4595 /* AppDelegate.m in Sources */,
+				C8AD10792050DA0B00283456 /* WilsonWebServer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
