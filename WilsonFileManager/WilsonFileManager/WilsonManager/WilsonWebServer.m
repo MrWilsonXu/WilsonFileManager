@@ -19,7 +19,6 @@ typedef NS_ENUM(NSUInteger, HandleType) {
 
 @interface WilsonWebServer()<GCDWebUploaderDelegate>
 
-@property (copy, nonatomic) NSString *superPath;
 @property (strong, nonatomic) GCDWebUploader *webServer;
 @property (weak, nonatomic) id<WilsonWebServerDelegate> delegate;
 @property (strong, nonatomic) NSMutableArray <WilsonFileModel *> *dataSource;
@@ -44,39 +43,43 @@ static WilsonWebServer *_wilsonWebServe = nil;
 
 #pragma mark - Public
 
-- (void)initWilsonWebServerDelegateObj:(id)delegateObj fileName:(NSString *)fileName {
+- (void)initWilsonWebServerDelegateObj:(id)delegateObj mainFilePath:(NSString *)mainFilePath {
     self.delegate = delegateObj;
-    self.superPath = [self filePathName:fileName];
-    [self initGCDWebUploader];
-}
-
-- (void)initGCDWebUploader {
-    self.webServer = [[GCDWebUploader alloc] initWithUploadDirectory:self.superPath];
+    self.webServer = [[GCDWebUploader alloc] initWithUploadDirectory:mainFilePath];
     self.webServer.delegate = self;
     self.webServer.allowHiddenItems = YES;
+    
+    NSLog(@"MainPath = %@",mainFilePath);
+}
+
+- (void)setFilePath:(NSString *)filePath {
+    _filePath = filePath;
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self initWebServerData];
+    });
 }
 
 - (void)webServerStart {
     [self.webServer start];
-    [self initWebServerData];
-
+    self.hasStart = YES;
+    
     NSString *adress = [NSString stringWithFormat:NSLocalizedString(@"GCDWebServer running locally on port：\n%@", nil), self.webServer.serverURL.absoluteString];
     if ([self.delegate respondsToSelector:@selector(webServerIpAdress:)]) {
         [self.delegate webServerIpAdress:self.webServer.serverURL.absoluteString];
     }
     NSLog(@"%@",adress);
-    NSLog(@"%@",self.superPath);
 }
 
 - (void)webServerStop {
     [self.webServer stop];
     self.webServer = nil;
+    self.hasStart = NO;
 }
 
 #pragma mark - DataSource
 
 - (void)initWebServerData {
-    NSArray *subPaths = [NSFileManager subpathsOfDirectoryWithPath:self.webServer.uploadDirectory];
+    NSArray *subPaths = [NSFileManager subpathsOfDirectoryWithPath:self.filePath];
     if (subPaths.count > 0) {
         for (NSString *subPath in subPaths) {
             NSString *fullPath = [self.webServer.uploadDirectory stringByAppendingPathComponent:subPath];
@@ -154,20 +157,6 @@ static WilsonWebServer *_wilsonWebServe = nil;
 - (void)webUploader:(GCDWebUploader*)uploader didCreateDirectoryAtPath:(NSString*)path {
     NSLog(@"[CREATE] %@", path);
     [self webCreateOrUpdateWithPath:path handleType:HandleCREATE];
-}
-
-#pragma mark - Helper
-
-- (NSString *)filePathName:(NSString *)filePathName {
-    NSString *documentsPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject];
-    NSString *filePath = [documentsPath stringByAppendingPathComponent:filePathName];
-    
-    NSFileManager *fm = [NSFileManager defaultManager];
-    if (![fm fileExistsAtPath:filePath]) {
-        NSString *directoryPath = [documentsPath stringByAppendingPathComponent:filePathName];
-        [fm createDirectoryAtPath:directoryPath withIntermediateDirectories:YES attributes:nil error:nil];
-    }
-    return filePath;
 }
 
 #pragma mark - Getter

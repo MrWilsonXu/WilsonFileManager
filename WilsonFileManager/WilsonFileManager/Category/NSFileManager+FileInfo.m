@@ -72,7 +72,18 @@
     return isDir;
 }
 
-#pragma mark - Public
++ (NSString *)fileAtDocumentDirectoryPathName:(NSString *)pathName {
+    NSString *documentsPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject];
+    NSString *filePath = [documentsPath stringByAppendingPathComponent:pathName];
+    
+    if (![[self defaultManager] fileExistsAtPath:filePath]) {
+        NSString *directoryPath = [documentsPath stringByAppendingPathComponent:pathName];
+        [[self defaultManager] createDirectoryAtPath:directoryPath withIntermediateDirectories:YES attributes:nil error:nil];
+    }
+    return filePath;
+}
+
+#pragma mark - Common
 
 + (NSString *)emptyContent {
     return @"文件不存在";

@@ -14,9 +14,12 @@
 @interface WilsonWebServer : NSObject
 
 + (instancetype)sharedManager;
-- (void)initWilsonWebServerDelegateObj:(id)delegateObj fileName:(NSString *)fileName;
+- (void)initWilsonWebServerDelegateObj:(id)delegateObj mainFilePath:(NSString *)mainFilePath;
 - (void)webServerStart;
 - (void)webServerStop;
+
+@property (copy, nonatomic) NSString *filePath;
+@property (assign, nonatomic) BOOL hasStart;
 
 @end
 

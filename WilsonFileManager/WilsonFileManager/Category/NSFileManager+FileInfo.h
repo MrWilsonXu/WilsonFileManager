@@ -18,4 +18,6 @@
 + (NSString *)fileSizeWithPath:(NSString *)path;
 + (WilonFileType)fileTypeWithPath:(NSString *)path;
 
++ (NSString *)fileAtDocumentDirectoryPathName:(NSString *)pathName;
+
 @end

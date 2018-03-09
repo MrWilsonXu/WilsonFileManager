@@ -8,6 +8,7 @@
 
 #import "WilsonTabBarVC.h"
 #import "FileManagerVC.h"
+#import "WilsonNavigationVC.h"
 
 @interface WilsonTabBarVC ()
 
@@ -28,12 +29,12 @@
 - (void)customRootVC {
     
     FileManagerVC *fileVC = [[FileManagerVC alloc] init];
-    UINavigationController *nvaFile = [[UINavigationController alloc] initWithRootViewController:fileVC];
+    WilsonNavigationVC *nvaFile = [[WilsonNavigationVC alloc] initWithRootViewController:fileVC];
     
     self.viewControllers = nil;
     self.viewControllers = [NSArray arrayWithObjects:nvaFile, nil];
     
-    [self setTabBarItem:nvaFile.tabBarItem normalImage:@"ico_tabFile_nor" selectedImage:@"ico_tabFile_sel" title:@"File"];
+    [self setTabBarItem:nvaFile.tabBarItem normalImage:@"ico_tabFile_nor" selectedImage:@"ico_tabFile_sel" title:@"Main"];
    
     [self.viewControllers makeObjectsPerformSelector:@selector(view)];
     self.selectedIndex = 0;
@@ -45,6 +46,9 @@
     UITabBarItem *tabItem = [UITabBarItem appearance];
     [tabItem setTitleTextAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:10]} forState:UIControlStateNormal];
     [tabItem setTitleTextAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:10], NSForegroundColorAttributeName:[UIColor ColorWithHex:@"#ED4836"]} forState:UIControlStateSelected];
+    
+    self.tabBar.translucent = NO;
+    self.tabBar.barTintColor = [UIColor whiteColor];
 }
 
 - (void)setTabBarItem:(UITabBarItem *)item normalImage:(NSString *)normalName selectedImage:(NSString *)selectedName title:(NSString *)title {

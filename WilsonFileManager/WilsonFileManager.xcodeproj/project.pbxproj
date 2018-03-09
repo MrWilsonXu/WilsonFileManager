@@ -10,24 +10,26 @@
 		3BB5B21FEEDA709FB86E6CE3 /* libPods-WilsonFileManagerTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 630B15A6848F651D6A79C0FC /* libPods-WilsonFileManagerTests.a */; };
 		8FF24BE0FBD808C03817C8FF /* libPods-WilsonFileManager.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 421D21E4FA3E3EF455BD6389 /* libPods-WilsonFileManager.a */; };
 		9198F84C29151B79C5E2E401 /* libPods-WilsonFileManagerUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D614D61D5AE922D5B1644DB9 /* libPods-WilsonFileManagerUITests.a */; };
-		C8792CFD20518F6400F7260D /* WilsonWebVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C8792CFC20518F6400F7260D /* WilsonWebVC.m */; };
 		C8792CFF20518F7600F7260D /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8792CFE20518F7600F7260D /* WebKit.framework */; };
 		C8792D01205196EF00F7260D /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8792D00205196EF00F7260D /* MobileCoreServices.framework */; };
 		C8AD10792050DA0B00283456 /* WilsonWebServer.m in Sources */ = {isa = PBXBuildFile; fileRef = C8AD10782050DA0B00283456 /* WilsonWebServer.m */; };
 		C8AD107B2050E23100283456 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C8AD107A2050E23100283456 /* libz.tbd */; };
 		C8AD107F2051154E00283456 /* WilsonFileModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C8AD107E2051154E00283456 /* WilsonFileModel.m */; };
 		C8AD108220511B7100283456 /* NSFileManager+FileInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = C8AD108120511B7100283456 /* NSFileManager+FileInfo.m */; };
-		C8AD108520514D0700283456 /* WilsonPreviewVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C8AD108420514D0700283456 /* WilsonPreviewVC.m */; };
+		C8BE761D205222ED00BC692B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C8BE761A205222ED00BC692B /* main.m */; };
+		C8BE761E205222ED00BC692B /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C8BE761C205222ED00BC692B /* Info.plist */; };
+		C8BE7623205258C500BC692B /* WilsonNavigationVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C8BE7622205258C500BC692B /* WilsonNavigationVC.m */; };
+		C8BE762B20525C9B00BC692B /* WilsonWebVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C8BE762820525C9B00BC692B /* WilsonWebVC.m */; };
+		C8BE762C20525C9B00BC692B /* FileManagerVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C8BE762920525C9B00BC692B /* FileManagerVC.m */; };
+		C8BE762D20525C9B00BC692B /* WilsonPreviewVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C8BE762A20525C9B00BC692B /* WilsonPreviewVC.m */; };
 		C8BF29B5204FB935008E4595 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C8BF29B4204FB935008E4595 /* AppDelegate.m */; };
 		C8BF29BB204FB935008E4595 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C8BF29B9204FB935008E4595 /* Main.storyboard */; };
 		C8BF29BD204FB935008E4595 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C8BF29BC204FB935008E4595 /* Assets.xcassets */; };
 		C8BF29C0204FB935008E4595 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C8BF29BE204FB935008E4595 /* LaunchScreen.storyboard */; };
-		C8BF29C3204FB935008E4595 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C8BF29C2204FB935008E4595 /* main.m */; };
 		C8BF29CD204FB935008E4595 /* WilsonFileManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C8BF29CC204FB935008E4595 /* WilsonFileManagerTests.m */; };
 		C8BF29D8204FB935008E4595 /* WilsonFileManagerUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = C8BF29D7204FB935008E4595 /* WilsonFileManagerUITests.m */; };
 		C8BF29E9204FC531008E4595 /* WilsonTabBarVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C8BF29E8204FC531008E4595 /* WilsonTabBarVC.m */; };
 		C8BF29ED204FC6C4008E4595 /* UIColor+ColorWithStr.m in Sources */ = {isa = PBXBuildFile; fileRef = C8BF29EC204FC6C4008E4595 /* UIColor+ColorWithStr.m */; };
-		C8BF29F1204FC9BC008E4595 /* FileManagerVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C8BF29F0204FC9BC008E4595 /* FileManagerVC.m */; };
 		C8BF29F5204FCF1E008E4595 /* FileManagerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C8BF29F4204FCF1E008E4595 /* FileManagerCell.m */; };
 /* End PBXBuildFile section */
 
@@ -55,9 +57,6 @@
 		6EA3325CE63662FB9BB14A85 /* Pods-WilsonFileManagerUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WilsonFileManagerUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WilsonFileManagerUITests/Pods-WilsonFileManagerUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		88CD8F9037F72DE1BA1BD126 /* Pods-WilsonFileManagerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WilsonFileManagerTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-WilsonFileManagerTests/Pods-WilsonFileManagerTests.release.xcconfig"; sourceTree = "<group>"; };
 		9D8AC71709229C18100FC901 /* Pods-WilsonFileManagerUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WilsonFileManagerUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-WilsonFileManagerUITests/Pods-WilsonFileManagerUITests.release.xcconfig"; sourceTree = "<group>"; };
-		C878AED5204FE88100823AF9 /* Macro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Macro.h; sourceTree = "<group>"; };
-		C8792CFB20518F6400F7260D /* WilsonWebVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WilsonWebVC.h; sourceTree = "<group>"; };
-		C8792CFC20518F6400F7260D /* WilsonWebVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WilsonWebVC.m; sourceTree = "<group>"; };
 		C8792CFE20518F7600F7260D /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		C8792D00205196EF00F7260D /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		C8AD10772050DA0B00283456 /* WilsonWebServer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WilsonWebServer.h; sourceTree = "<group>"; };
@@ -67,16 +66,24 @@
 		C8AD107E2051154E00283456 /* WilsonFileModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WilsonFileModel.m; sourceTree = "<group>"; };
 		C8AD108020511B7100283456 /* NSFileManager+FileInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSFileManager+FileInfo.h"; sourceTree = "<group>"; };
 		C8AD108120511B7100283456 /* NSFileManager+FileInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSFileManager+FileInfo.m"; sourceTree = "<group>"; };
-		C8AD108320514D0700283456 /* WilsonPreviewVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WilsonPreviewVC.h; sourceTree = "<group>"; };
-		C8AD108420514D0700283456 /* WilsonPreviewVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WilsonPreviewVC.m; sourceTree = "<group>"; };
+		C8BE7619205222ED00BC692B /* Macro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Macro.h; sourceTree = "<group>"; };
+		C8BE761A205222ED00BC692B /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		C8BE761B205222ED00BC692B /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		C8BE761C205222ED00BC692B /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C8BE7621205258C500BC692B /* WilsonNavigationVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WilsonNavigationVC.h; sourceTree = "<group>"; };
+		C8BE7622205258C500BC692B /* WilsonNavigationVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WilsonNavigationVC.m; sourceTree = "<group>"; };
+		C8BE762520525C9B00BC692B /* WilsonWebVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WilsonWebVC.h; sourceTree = "<group>"; };
+		C8BE762620525C9B00BC692B /* FileManagerVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileManagerVC.h; sourceTree = "<group>"; };
+		C8BE762720525C9B00BC692B /* WilsonPreviewVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WilsonPreviewVC.h; sourceTree = "<group>"; };
+		C8BE762820525C9B00BC692B /* WilsonWebVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WilsonWebVC.m; sourceTree = "<group>"; };
+		C8BE762920525C9B00BC692B /* FileManagerVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileManagerVC.m; sourceTree = "<group>"; };
+		C8BE762A20525C9B00BC692B /* WilsonPreviewVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WilsonPreviewVC.m; sourceTree = "<group>"; };
 		C8BF29B0204FB935008E4595 /* WilsonFileManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WilsonFileManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C8BF29B3204FB935008E4595 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C8BF29B4204FB935008E4595 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		C8BF29BA204FB935008E4595 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C8BF29BC204FB935008E4595 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C8BF29BF204FB935008E4595 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		C8BF29C1204FB935008E4595 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C8BF29C2204FB935008E4595 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C8BF29C8204FB935008E4595 /* WilsonFileManagerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WilsonFileManagerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C8BF29CC204FB935008E4595 /* WilsonFileManagerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WilsonFileManagerTests.m; sourceTree = "<group>"; };
 		C8BF29CE204FB935008E4595 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -87,9 +94,6 @@
 		C8BF29E8204FC531008E4595 /* WilsonTabBarVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WilsonTabBarVC.m; sourceTree = "<group>"; };
 		C8BF29EB204FC6C4008E4595 /* UIColor+ColorWithStr.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+ColorWithStr.h"; sourceTree = "<group>"; };
 		C8BF29EC204FC6C4008E4595 /* UIColor+ColorWithStr.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+ColorWithStr.m"; sourceTree = "<group>"; };
-		C8BF29EE204FC6F2008E4595 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
-		C8BF29EF204FC9BC008E4595 /* FileManagerVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FileManagerVC.h; sourceTree = "<group>"; };
-		C8BF29F0204FC9BC008E4595 /* FileManagerVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FileManagerVC.m; sourceTree = "<group>"; };
 		C8BF29F3204FCF1E008E4595 /* FileManagerCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FileManagerCell.h; sourceTree = "<group>"; };
 		C8BF29F4204FCF1E008E4595 /* FileManagerCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FileManagerCell.m; sourceTree = "<group>"; };
 		D614D61D5AE922D5B1644DB9 /* libPods-WilsonFileManagerUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WilsonFileManagerUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -146,6 +150,30 @@
 			path = WilsonModel;
 			sourceTree = "<group>";
 		};
+		C8BE7618205222ED00BC692B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C8BE7619205222ED00BC692B /* Macro.h */,
+				C8BE761A205222ED00BC692B /* main.m */,
+				C8BE761B205222ED00BC692B /* PrefixHeader.pch */,
+				C8BE761C205222ED00BC692B /* Info.plist */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C8BE762420525C9B00BC692B /* WilsonVCs */ = {
+			isa = PBXGroup;
+			children = (
+				C8BE762520525C9B00BC692B /* WilsonWebVC.h */,
+				C8BE762820525C9B00BC692B /* WilsonWebVC.m */,
+				C8BE762620525C9B00BC692B /* FileManagerVC.h */,
+				C8BE762920525C9B00BC692B /* FileManagerVC.m */,
+				C8BE762A20525C9B00BC692B /* WilsonPreviewVC.m */,
+				C8BE762720525C9B00BC692B /* WilsonPreviewVC.h */,
+			);
+			path = WilsonVCs;
+			sourceTree = "<group>";
+		};
 		C8BF29A7204FB935008E4595 = {
 			isa = PBXGroup;
 			children = (
@@ -175,23 +203,17 @@
 				C8BF29B4204FB935008E4595 /* AppDelegate.m */,
 				C8BF29E7204FC531008E4595 /* WilsonTabBarVC.h */,
 				C8BF29E8204FC531008E4595 /* WilsonTabBarVC.m */,
-				C8BF29EF204FC9BC008E4595 /* FileManagerVC.h */,
-				C8BF29F0204FC9BC008E4595 /* FileManagerVC.m */,
-				C8AD108320514D0700283456 /* WilsonPreviewVC.h */,
-				C8AD108420514D0700283456 /* WilsonPreviewVC.m */,
-				C8792CFB20518F6400F7260D /* WilsonWebVC.h */,
-				C8792CFC20518F6400F7260D /* WilsonWebVC.m */,
+				C8BE7621205258C500BC692B /* WilsonNavigationVC.h */,
+				C8BE7622205258C500BC692B /* WilsonNavigationVC.m */,
 				C8BF29B9204FB935008E4595 /* Main.storyboard */,
+				C8BE762420525C9B00BC692B /* WilsonVCs */,
 				C8AD107C2051153E00283456 /* WilsonModel */,
 				C8AD10762050D8AA00283456 /* WilsonManager */,
 				C8BF29F2204FCF06008E4595 /* BaseView */,
 				C8BF29EA204FC612008E4595 /* Category */,
 				C8BF29BC204FB935008E4595 /* Assets.xcassets */,
 				C8BF29BE204FB935008E4595 /* LaunchScreen.storyboard */,
-				C8BF29C1204FB935008E4595 /* Info.plist */,
-				C8BF29C2204FB935008E4595 /* main.m */,
-				C8BF29EE204FC6F2008E4595 /* PrefixHeader.pch */,
-				C878AED5204FE88100823AF9 /* Macro.h */,
+				C8BE7618205222ED00BC692B /* Supporting Files */,
 			);
 			path = WilsonFileManager;
 			sourceTree = "<group>";
@@ -375,6 +397,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C8BE761E205222ED00BC692B /* Info.plist in Resources */,
 				C8BF29C0204FB935008E4595 /* LaunchScreen.storyboard in Resources */,
 				C8BF29BD204FB935008E4595 /* Assets.xcassets in Resources */,
 				C8BF29BB204FB935008E4595 /* Main.storyboard in Resources */,
@@ -554,15 +577,16 @@
 			files = (
 				C8BF29E9204FC531008E4595 /* WilsonTabBarVC.m in Sources */,
 				C8AD107F2051154E00283456 /* WilsonFileModel.m in Sources */,
-				C8BF29F1204FC9BC008E4595 /* FileManagerVC.m in Sources */,
-				C8AD108520514D0700283456 /* WilsonPreviewVC.m in Sources */,
-				C8BF29C3204FB935008E4595 /* main.m in Sources */,
+				C8BE7623205258C500BC692B /* WilsonNavigationVC.m in Sources */,
 				C8BF29F5204FCF1E008E4595 /* FileManagerCell.m in Sources */,
-				C8792CFD20518F6400F7260D /* WilsonWebVC.m in Sources */,
 				C8BF29ED204FC6C4008E4595 /* UIColor+ColorWithStr.m in Sources */,
 				C8AD108220511B7100283456 /* NSFileManager+FileInfo.m in Sources */,
 				C8BF29B5204FB935008E4595 /* AppDelegate.m in Sources */,
+				C8BE762C20525C9B00BC692B /* FileManagerVC.m in Sources */,
+				C8BE761D205222ED00BC692B /* main.m in Sources */,
 				C8AD10792050DA0B00283456 /* WilsonWebServer.m in Sources */,
+				C8BE762B20525C9B00BC692B /* WilsonWebVC.m in Sources */,
+				C8BE762D20525C9B00BC692B /* WilsonPreviewVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -728,8 +752,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2W77NDA9H2;
-				GCC_PREFIX_HEADER = WilsonFileManager/PrefixHeader.pch;
-				INFOPLIST_FILE = WilsonFileManager/Info.plist;
+				GCC_PREFIX_HEADER = "WilsonFileManager/Supporting Files/PrefixHeader.pch";
+				INFOPLIST_FILE = "WilsonFileManager/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ForeverMamba.WilsonFileManager;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -744,8 +768,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2W77NDA9H2;
-				GCC_PREFIX_HEADER = WilsonFileManager/PrefixHeader.pch;
-				INFOPLIST_FILE = WilsonFileManager/Info.plist;
+				GCC_PREFIX_HEADER = "WilsonFileManager/Supporting Files/PrefixHeader.pch";
+				INFOPLIST_FILE = "WilsonFileManager/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ForeverMamba.WilsonFileManager;
 				PRODUCT_NAME = "$(TARGET_NAME)";

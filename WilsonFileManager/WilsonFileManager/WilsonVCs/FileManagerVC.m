@@ -14,6 +14,8 @@
 #import "WilsonWebServer.h"
 #import "WilsonFileModel.h"
 
+#import "NSFileManager+FileInfo.h"
+
 @interface FileManagerVC ()<UITableViewDelegate, UITableViewDataSource, WilsonWebServerDelegate>
 
 @property (strong, nonatomic) UITableView *tableView;
@@ -28,6 +30,10 @@
 
 #define CellReuse @"FileManagerCellReuse"
 @implementation FileManagerVC
+
+- (void)dealloc {
+    NSLog(@"FileManagerVC -> dealloc");
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -49,18 +55,29 @@
         make.height.mas_equalTo(20);
     }];
     
-    [self.tableView reloadData];
-    
     self.webServer = [WilsonWebServer sharedManager];
-    [self.webServer initWilsonWebServerDelegateObj:self fileName:@"Wilson"];
-    [self.webServer webServerStart];
+    NSString *mainFilePath = [NSFileManager fileAtDocumentDirectoryPathName:@"Wilson"];
+    
+    if (!self.webServer.hasStart) {
+        [self.webServer initWilsonWebServerDelegateObj:self mainFilePath:mainFilePath];
+        [self.webServer webServerStart];
+    }
+    
+    if (self.filePath.length > 0) {
+        self.webServer.filePath = self.filePath;
+    } else {
+        self.webServer.filePath = mainFilePath;
+    }
+    
 }
 
 #pragma mark - WilsonWebServerDelegate
 
 - (void)webServerDataSource:(NSMutableArray <WilsonFileModel *> *)dataSource {
-    self.dataSource = [NSMutableArray arrayWithArray:dataSource];
-    [self.tableView reloadData];
+    self.dataSource = dataSource;
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.tableView reloadData];
+    });
 }
 
 - (void)webServerIpAdress:(NSString *)ipAdress {
@@ -87,13 +104,15 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     WilsonFileModel *model = self.dataSource[indexPath.row];
     NSURL *url = [NSURL fileURLWithPath:model.wholePath];
-    
+
     if (model.fileType == WilonFileTypeDocument || model.fileType == WilonFileTypeImage) {
         WilsonPreviewVC *vc = [[WilsonPreviewVC alloc] init];
         vc.url = url;
         [self.navigationController pushViewController:vc animated:YES];
     } else if (model.fileType == WilonFileTypeFolder) {
-        
+        FileManagerVC *vc = [[FileManagerVC alloc] init];
+        vc.filePath = model.wholePath;
+        [self.navigationController pushViewController:vc animated:YES];
     } else {
         WilsonWebVC *webVC = [[WilsonWebVC alloc] init];
         webVC.webUrl = url;
@@ -105,7 +124,7 @@
 
 - (UITableView *)tableView {
     if (!_tableView) {
-        self.tableView = [[UITableView alloc] initWithFrame:self.view.frame style:UITableViewStylePlain];
+        self.tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
         _tableView.delegate = self;
         _tableView.dataSource = self;
         _tableView.estimatedRowHeight = 100;

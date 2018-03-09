@@ -10,4 +10,6 @@
 
 @interface FileManagerVC : UIViewController
 
+@property (copy, nonatomic) NSString *filePath;
+
 @end
