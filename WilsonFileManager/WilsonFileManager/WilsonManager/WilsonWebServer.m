@@ -10,18 +10,10 @@
 #import "GCDWebUploader.h"
 #import "NSFileManager+FileInfo.h"
 
-typedef NS_ENUM(NSUInteger, HandleType) {
-    HandleUPLOAD = 0,
-    HandleMOVE = 1,
-    HandleDELETE = 2,
-    HandleCREATE = 3
-};
-
 @interface WilsonWebServer()<GCDWebUploaderDelegate>
 
 @property (strong, nonatomic) GCDWebUploader *webServer;
 @property (weak, nonatomic) id<WilsonWebServerDelegate> delegate;
-@property (strong, nonatomic) NSMutableArray <WilsonFileModel *> *dataSource;
 
 @end
 
@@ -54,9 +46,14 @@ static WilsonWebServer *_wilsonWebServe = nil;
 
 - (void)setFilePath:(NSString *)filePath {
     _filePath = filePath;
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self initWebServerData];
-    });
+}
+
+- (void)webServerLoadData {
+    NSMutableArray *arr = [self filePathDataSource];
+    
+    if ([self.delegate respondsToSelector:@selector(webServerDataSource:filePath:)]) {
+        [self.delegate webServerDataSource:arr filePath:self.filePath];
+    }
 }
 
 - (void)webServerStart {
@@ -78,47 +75,43 @@ static WilsonWebServer *_wilsonWebServe = nil;
 
 #pragma mark - DataSource
 
-- (void)initWebServerData {
+- (NSMutableArray <WilsonFileModel *> *)filePathDataSource {
     NSArray *subPaths = [NSFileManager subpathsOfDirectoryWithPath:self.filePath];
+    NSMutableArray *arr = [NSMutableArray <WilsonFileModel *> array];
+    
     if (subPaths.count > 0) {
         for (NSString *subPath in subPaths) {
-            NSString *fullPath = [self.webServer.uploadDirectory stringByAppendingPathComponent:subPath];
-            [self webCreateOrUpdateWithPath:fullPath handleType:HandleUPLOAD];
+            NSString *fullPath = [self.filePath stringByAppendingPathComponent:subPath];
+            WilsonFileModel *model = [self fileModelWithPath:fullPath];
+            [arr addObject:model];
         }
     }
+    return arr;
 }
 
-- (void)webCreateOrUpdateWithPath:(NSString *)path handleType:(HandleType)handleType {
+
+- (void)webCreateOrUpdateWithPath:(NSString *)path handleType:(HandleType)handleType  {
     
     NSString *key = [NSFileManager fileNameWithPath:path];
+    WilsonFileModel *model;
     
     if (handleType == HandleMOVE) {
         
     } else if (handleType == HandleDELETE) {
-        WilsonFileModel *model = [self queryFileModelWithKey:key];
-        if (model) {
-            [self.dataSource removeObject:model];
-            [self sendDelegate];
-        }
+        model = [self queryFileModelWithKey:key];
     } else {
-        WilsonFileModel *model = [self fileModelWithPath:path];
-        if (model) {
-            [self.dataSource addObject:model];
-            [self sendDelegate];
-        }
+        model = [self fileModelWithPath:path];
     }
     
-}
-
-- (void)sendDelegate {
-    if ([self.delegate respondsToSelector:@selector(webServerDataSource:)]) {
-        [self.delegate webServerDataSource:self.dataSource];
+    if ([self.delegate respondsToSelector:@selector(webServerHandleModel:handleType:filePath:)]) {
+        [self.delegate webServerHandleModel:model handleType:handleType filePath:self.filePath];
     }
 }
+
 
 - (WilsonFileModel *)queryFileModelWithKey:(NSString *)key {
     NSPredicate *predict = [NSPredicate predicateWithFormat:@"fileName = %@",key];
-    NSArray *results = [self.dataSource filteredArrayUsingPredicate:predict];
+    NSArray *results = [[self filePathDataSource] filteredArrayUsingPredicate:predict];
     if (results.count > 0) {
         WilsonFileModel *model = results.firstObject;
         return model;
@@ -157,15 +150,6 @@ static WilsonWebServer *_wilsonWebServe = nil;
 - (void)webUploader:(GCDWebUploader*)uploader didCreateDirectoryAtPath:(NSString*)path {
     NSLog(@"[CREATE] %@", path);
     [self webCreateOrUpdateWithPath:path handleType:HandleCREATE];
-}
-
-#pragma mark - Getter
-
-- (NSMutableArray<WilsonFileModel *> *)dataSource {
-    if (!_dataSource) {
-        self.dataSource = [NSMutableArray <WilsonFileModel *> array];
-    }
-    return _dataSource;
 }
 
 @end

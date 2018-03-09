@@ -17,6 +17,7 @@
 - (void)initWilsonWebServerDelegateObj:(id)delegateObj mainFilePath:(NSString *)mainFilePath;
 - (void)webServerStart;
 - (void)webServerStop;
+- (void)webServerLoadData;
 
 @property (copy, nonatomic) NSString *filePath;
 @property (assign, nonatomic) BOOL hasStart;
@@ -25,7 +26,9 @@
 
 @protocol WilsonWebServerDelegate <NSObject>
 
-- (void)webServerDataSource:(NSMutableArray <WilsonFileModel *> *)dataSource;
+- (void)webServerDataSource:(NSMutableArray <WilsonFileModel *> *)dataSource filePath:(NSString *)filePath;
+
+- (void)webServerHandleModel:(WilsonFileModel *)model handleType:(HandleType)handleType filePath:(NSString *)filePath;
 
 - (void)webServerIpAdress:(NSString *)ipAdress;
 

@@ -22,8 +22,6 @@
 
 @property (strong, nonatomic) UILabel *IPAdress;
 
-@property (strong, nonatomic) WilsonWebServer *webServer;
-
 @property (strong, nonatomic) NSMutableArray <WilsonFileModel *> *dataSource;
 
 @end
@@ -55,29 +53,42 @@
         make.height.mas_equalTo(20);
     }];
     
-    self.webServer = [WilsonWebServer sharedManager];
+    WilsonWebServer *webServer = [WilsonWebServer sharedManager];
     NSString *mainFilePath = [NSFileManager fileAtDocumentDirectoryPathName:@"Wilson"];
     
-    if (!self.webServer.hasStart) {
-        [self.webServer initWilsonWebServerDelegateObj:self mainFilePath:mainFilePath];
-        [self.webServer webServerStart];
+    if (!webServer.hasStart) {
+        [webServer initWilsonWebServerDelegateObj:self mainFilePath:mainFilePath];
+        [webServer webServerStart];
     }
     
     if (self.filePath.length > 0) {
-        self.webServer.filePath = self.filePath;
+        webServer.filePath = self.filePath;
     } else {
-        self.webServer.filePath = mainFilePath;
+        webServer.filePath = mainFilePath;
+        self.filePath = mainFilePath;
     }
     
+    [webServer webServerLoadData];
 }
 
 #pragma mark - WilsonWebServerDelegate
 
-- (void)webServerDataSource:(NSMutableArray <WilsonFileModel *> *)dataSource {
-    self.dataSource = dataSource;
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self.tableView reloadData];
-    });
+- (void)webServerDataSource:(NSMutableArray <WilsonFileModel *> *)dataSource filePath:(NSString *)filePath {
+    
+    if ([self.filePath isEqualToString:filePath]) {
+        self.dataSource = [NSMutableArray array];
+        for (WilsonFileModel *model in dataSource) {
+            [self.dataSource addObject:model];
+        }
+        
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [self.tableView reloadData];
+        });
+    }
+}
+
+- (void)webServerHandleModel:(WilsonFileModel *)model handleType:(HandleType)handleType filePath:(NSString *)filePath {
+    
 }
 
 - (void)webServerIpAdress:(NSString *)ipAdress {
@@ -133,13 +144,6 @@
         [_tableView registerClass:[FileManagerCell class] forCellReuseIdentifier:CellReuse];
     }
     return _tableView;
-}
-
-- (NSMutableArray<WilsonFileModel *> *)dataSource {
-    if (!_dataSource) {
-        self.dataSource = [NSMutableArray <WilsonFileModel *> array];
-    }
-    return _dataSource;
 }
 
 - (UILabel *)IPAdress {

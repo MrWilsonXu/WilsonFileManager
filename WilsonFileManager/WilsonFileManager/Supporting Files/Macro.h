@@ -23,4 +23,11 @@ typedef NS_ENUM(NSUInteger, WilonFileType) {
     WilonFileTypeUrl =25
 };
 
+typedef NS_ENUM(NSUInteger, HandleType) {
+    HandleUPLOAD = 0,
+    HandleMOVE = 1,
+    HandleDELETE = 2,
+    HandleCREATE = 3
+};
+
 #endif /* Macro_h */
