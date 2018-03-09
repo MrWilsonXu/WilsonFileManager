@@ -54,10 +54,11 @@
     }];
     
     WilsonWebServer *webServer = [WilsonWebServer sharedManager];
+    webServer.delegate = self;
     NSString *mainFilePath = [NSFileManager fileAtDocumentDirectoryPathName:@"Wilson"];
     
     if (!webServer.hasStart) {
-        [webServer initWilsonWebServerDelegateObj:self mainFilePath:mainFilePath];
+        [webServer initWebServerMainFilePath:mainFilePath];
         [webServer webServerStart];
     }
     
@@ -67,8 +68,8 @@
         webServer.filePath = mainFilePath;
         self.filePath = mainFilePath;
     }
-    
-    [webServer webServerLoadData];
+
+     [[WilsonWebServer sharedManager] webServerLoadData];
 }
 
 #pragma mark - WilsonWebServerDelegate

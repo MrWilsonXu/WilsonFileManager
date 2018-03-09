@@ -13,7 +13,6 @@
 @interface WilsonWebServer()<GCDWebUploaderDelegate>
 
 @property (strong, nonatomic) GCDWebUploader *webServer;
-@property (weak, nonatomic) id<WilsonWebServerDelegate> delegate;
 
 @end
 
@@ -35,8 +34,7 @@ static WilsonWebServer *_wilsonWebServe = nil;
 
 #pragma mark - Public
 
-- (void)initWilsonWebServerDelegateObj:(id)delegateObj mainFilePath:(NSString *)mainFilePath {
-    self.delegate = delegateObj;
+- (void)initWebServerMainFilePath:(NSString *)mainFilePath {
     self.webServer = [[GCDWebUploader alloc] initWithUploadDirectory:mainFilePath];
     self.webServer.delegate = self;
     self.webServer.allowHiddenItems = YES;
