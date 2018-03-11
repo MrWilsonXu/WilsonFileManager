@@ -16,6 +16,7 @@
 + (NSString *)fileNameWithPath:(NSString *)path;
 + (NSString *)fileCreateTimeWithPath:(NSString *)path;
 + (NSString *)fileSizeWithPath:(NSString *)path;
++ (NSString *)upperFilePathWithPath:(NSString *)path;
 + (WilonFileType)fileTypeWithPath:(NSString *)path;
 
 + (NSString *)fileAtDocumentDirectoryPathName:(NSString *)pathName;

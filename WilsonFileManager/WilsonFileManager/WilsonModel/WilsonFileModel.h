@@ -10,7 +10,9 @@
 
 @interface WilsonFileModel : NSObject
 
-@property (copy, nonatomic) NSString *wholePath;
+@property (copy, nonatomic) NSString *upperFilePath;
+
+@property (copy, nonatomic) NSString *handLePath;
 
 @property (copy, nonatomic) NSString *fileName;
 
@@ -18,8 +20,11 @@
 
 @property (copy, nonatomic) NSString *fileSize;
 
-@property (assign, nonatomic) WilonFileType fileType;
-
 @property (assign, nonatomic) BOOL showDetail;
 
+@property (assign, nonatomic) WilonFileType fileType;
+
+@property (assign, nonatomic) HandleType *handleType;
+
 @end
+

@@ -22,6 +22,8 @@
 
 @property (strong, nonatomic) UILabel *IPAdress;
 
+@property (strong, nonatomic) WilsonFileModel *handleModel;
+
 @property (strong, nonatomic) NSMutableArray <WilsonFileModel *> *dataSource;
 
 @end
@@ -69,26 +71,30 @@
         self.filePath = mainFilePath;
     }
 
-     [[WilsonWebServer sharedManager] webServerLoadData];
+    self.handleModel = webServer.handleModel;
+    
+    // iOS 设计模式思考：多个vc或对象监听单例中某个值的改变
+    
+    
+    [webServer webServerLoadPathData];
 }
+
+#pragma mark - WilsonFileModelDelegate
+
+
 
 #pragma mark - WilsonWebServerDelegate
 
-- (void)webServerDataSource:(NSMutableArray <WilsonFileModel *> *)dataSource filePath:(NSString *)filePath {
+- (void)webServerDataSource:(NSMutableArray <WilsonFileModel *> *)dataSource {
     
-    if ([self.filePath isEqualToString:filePath]) {
-        self.dataSource = [NSMutableArray array];
-        for (WilsonFileModel *model in dataSource) {
-            [self.dataSource addObject:model];
-        }
-        
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            [self.tableView reloadData];
-        });
+    self.dataSource = [NSMutableArray array];
+    for (WilsonFileModel *model in dataSource) {
+        [self.dataSource addObject:model];
     }
-}
-
-- (void)webServerHandleModel:(WilsonFileModel *)model handleType:(HandleType)handleType filePath:(NSString *)filePath {
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.tableView reloadData];
+    });
     
 }
 
@@ -115,7 +121,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     WilsonFileModel *model = self.dataSource[indexPath.row];
-    NSURL *url = [NSURL fileURLWithPath:model.wholePath];
+    NSURL *url = [NSURL fileURLWithPath:model.handLePath];
 
     if (model.fileType == WilonFileTypeDocument || model.fileType == WilonFileTypeImage) {
         WilsonPreviewVC *vc = [[WilsonPreviewVC alloc] init];
@@ -123,7 +129,7 @@
         [self.navigationController pushViewController:vc animated:YES];
     } else if (model.fileType == WilonFileTypeFolder) {
         FileManagerVC *vc = [[FileManagerVC alloc] init];
-        vc.filePath = model.wholePath;
+        vc.filePath = model.handLePath;
         [self.navigationController pushViewController:vc animated:YES];
     } else {
         WilsonWebVC *webVC = [[WilsonWebVC alloc] init];

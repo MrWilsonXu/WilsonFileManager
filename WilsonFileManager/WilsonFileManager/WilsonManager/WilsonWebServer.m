@@ -46,11 +46,11 @@ static WilsonWebServer *_wilsonWebServe = nil;
     _filePath = filePath;
 }
 
-- (void)webServerLoadData {
+- (void)webServerLoadPathData {
     NSMutableArray *arr = [self filePathDataSource];
     
-    if ([self.delegate respondsToSelector:@selector(webServerDataSource:filePath:)]) {
-        [self.delegate webServerDataSource:arr filePath:self.filePath];
+    if ([self.delegate respondsToSelector:@selector(webServerDataSource:)]) {
+        [self.delegate webServerDataSource:arr];
     }
 }
 
@@ -80,7 +80,7 @@ static WilsonWebServer *_wilsonWebServe = nil;
     if (subPaths.count > 0) {
         for (NSString *subPath in subPaths) {
             NSString *fullPath = [self.filePath stringByAppendingPathComponent:subPath];
-            WilsonFileModel *model = [self fileModelWithPath:fullPath];
+            WilsonFileModel *model = [self fileModelWithHandelPath:fullPath];
             [arr addObject:model];
         }
     }
@@ -88,21 +88,22 @@ static WilsonWebServer *_wilsonWebServe = nil;
 }
 
 
-- (void)webCreateOrUpdateWithPath:(NSString *)path handleType:(HandleType)handleType  {
+- (void)webCreateOrUpdateWithHandlePath:(NSString *)handlePath handleType:(HandleType)handleType  {
     
-    NSString *key = [NSFileManager fileNameWithPath:path];
     WilsonFileModel *model;
     
     if (handleType == HandleMOVE) {
         
     } else if (handleType == HandleDELETE) {
-        model = [self queryFileModelWithKey:key];
+        model = [self fileModelWithHandelPath:handlePath];
     } else {
-        model = [self fileModelWithPath:path];
+        model = [self fileModelWithHandelPath:handlePath];
     }
     
-    if ([self.delegate respondsToSelector:@selector(webServerHandleModel:handleType:filePath:)]) {
-        [self.delegate webServerHandleModel:model handleType:handleType filePath:self.filePath];
+    self.handleModel = model;
+    
+    if ([self.handleModel.delegate respondsToSelector:@selector(webServerHandleModel:handleType:)]) {
+        [self.handleModel.delegate webServerHandleModel:model handleType:handleType];
     }
 }
 
@@ -118,13 +119,14 @@ static WilsonWebServer *_wilsonWebServe = nil;
     return nil;
 }
 
-- (WilsonFileModel *)fileModelWithPath:(NSString *)path {
+- (WilsonFileModel *)fileModelWithHandelPath:(NSString *)handlePath {
     WilsonFileModel *model = [[WilsonFileModel alloc] init];
-    model.wholePath = path;
-    model.fileName = [NSFileManager fileNameWithPath:path];
-    model.fileSize = [NSFileManager fileSizeWithPath:path];
-    model.fileType = [NSFileManager fileTypeWithPath:path];
-    model.createDate = [NSFileManager fileCreateTimeWithPath:path];
+    model.handLePath = handlePath;
+    model.upperFilePath = [NSFileManager upperFilePathWithPath:handlePath];
+    model.fileName = [NSFileManager fileNameWithPath:handlePath];
+    model.fileSize = [NSFileManager fileSizeWithPath:handlePath];
+    model.fileType = [NSFileManager fileTypeWithPath:handlePath];
+    model.createDate = [NSFileManager fileCreateTimeWithPath:handlePath];
     return model;
 }
 
@@ -132,22 +134,22 @@ static WilsonWebServer *_wilsonWebServe = nil;
 
 - (void)webUploader:(GCDWebUploader*)uploader didUploadFileAtPath:(NSString*)path {
     NSLog(@"[UPLOAD] %@", path);
-    [self webCreateOrUpdateWithPath:path handleType:HandleUPLOAD];
+    [self webCreateOrUpdateWithHandlePath:path handleType:HandleUPLOAD];
 }
 
 - (void)webUploader:(GCDWebUploader*)uploader didMoveItemFromPath:(NSString*)fromPath toPath:(NSString*)toPath {
     NSLog(@"[MOVE] %@ -> %@", fromPath, toPath);
-    [self webCreateOrUpdateWithPath:toPath handleType:HandleUPLOAD];
+    [self webCreateOrUpdateWithHandlePath:toPath handleType:HandleUPLOAD];
 }
 
 - (void)webUploader:(GCDWebUploader*)uploader didDeleteItemAtPath:(NSString*)path {
     NSLog(@"[DELETE] %@", path);
-    [self webCreateOrUpdateWithPath:path handleType:HandleDELETE];
+    [self webCreateOrUpdateWithHandlePath:path handleType:HandleDELETE];
 }
 
 - (void)webUploader:(GCDWebUploader*)uploader didCreateDirectoryAtPath:(NSString*)path {
     NSLog(@"[CREATE] %@", path);
-    [self webCreateOrUpdateWithPath:path handleType:HandleCREATE];
+    [self webCreateOrUpdateWithHandlePath:path handleType:HandleCREATE];
 }
 
 @end

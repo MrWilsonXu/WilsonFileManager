@@ -83,6 +83,16 @@
     return filePath;
 }
 
++ (NSString *)upperFilePathWithPath:(NSString *)path {
+    NSString *lastPart = [self fileNameWithPath:path];
+    if (lastPart.length > 0 && path.length > lastPart.length) {
+        NSUInteger toIndex = path.length - lastPart.length - 1;
+        NSString *upperFilePath = [path substringToIndex:toIndex];
+        return upperFilePath;
+    }
+    return @"";
+}
+
 #pragma mark - Common
 
 + (NSString *)emptyContent {

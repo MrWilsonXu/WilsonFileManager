@@ -13,11 +13,16 @@
 
 @interface WilsonWebServer : NSObject
 
+/**
+ *  current handle model
+ */
+@property (strong, nonatomic) WilsonFileModel *handleModel;
+
 + (instancetype)sharedManager;
 - (void)initWebServerMainFilePath:(NSString *)mainFilePath;
 - (void)webServerStart;
 - (void)webServerStop;
-- (void)webServerLoadData;
+- (void)webServerLoadPathData;
 
 @property (copy, nonatomic) NSString *filePath;
 @property (assign, nonatomic) BOOL hasStart;
@@ -27,9 +32,7 @@
 
 @protocol WilsonWebServerDelegate <NSObject>
 
-- (void)webServerDataSource:(NSMutableArray <WilsonFileModel *> *)dataSource filePath:(NSString *)filePath;
-
-- (void)webServerHandleModel:(WilsonFileModel *)model handleType:(HandleType)handleType filePath:(NSString *)filePath;
+- (void)webServerDataSource:(NSMutableArray <WilsonFileModel *> *)dataSource;
 
 - (void)webServerIpAdress:(NSString *)ipAdress;
 
