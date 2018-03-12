@@ -80,7 +80,7 @@ static WilsonWebServer *_wilsonWebServe = nil;
     if (subPaths.count > 0) {
         for (NSString *subPath in subPaths) {
             NSString *fullPath = [self.filePath stringByAppendingPathComponent:subPath];
-            WilsonFileModel *model = [self fileModelWithHandelPath:fullPath];
+            WilsonFileModel *model = [self fileModelWithHandelPath:fullPath handleType:HandleUPLOAD];
             [arr addObject:model];
         }
     }
@@ -95,16 +95,12 @@ static WilsonWebServer *_wilsonWebServe = nil;
     if (handleType == HandleMOVE) {
         
     } else if (handleType == HandleDELETE) {
-        model = [self fileModelWithHandelPath:handlePath];
+        model = [self fileModelWithHandelPath:handlePath handleType:handleType];
     } else {
-        model = [self fileModelWithHandelPath:handlePath];
+        model = [self fileModelWithHandelPath:handlePath handleType:handleType];
     }
     
     self.handleModel = model;
-    
-    if ([self.handleModel.delegate respondsToSelector:@selector(webServerHandleModel:handleType:)]) {
-        [self.handleModel.delegate webServerHandleModel:model handleType:handleType];
-    }
 }
 
 
@@ -119,9 +115,10 @@ static WilsonWebServer *_wilsonWebServe = nil;
     return nil;
 }
 
-- (WilsonFileModel *)fileModelWithHandelPath:(NSString *)handlePath {
+- (WilsonFileModel *)fileModelWithHandelPath:(NSString *)handlePath handleType:(HandleType)handleType {
     WilsonFileModel *model = [[WilsonFileModel alloc] init];
     model.handLePath = handlePath;
+    model.handleType = handleType;
     model.upperFilePath = [NSFileManager upperFilePathWithPath:handlePath];
     model.fileName = [NSFileManager fileNameWithPath:handlePath];
     model.fileSize = [NSFileManager fileSizeWithPath:handlePath];

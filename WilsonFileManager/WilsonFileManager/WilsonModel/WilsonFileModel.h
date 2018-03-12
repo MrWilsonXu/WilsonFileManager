@@ -24,7 +24,7 @@
 
 @property (assign, nonatomic) WilonFileType fileType;
 
-@property (assign, nonatomic) HandleType *handleType;
+@property (assign, nonatomic) HandleType handleType;
 
 @end
 

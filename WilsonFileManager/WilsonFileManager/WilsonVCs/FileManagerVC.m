@@ -29,10 +29,13 @@
 @end
 
 #define CellReuse @"FileManagerCellReuse"
+#define ObserverKeyPath @"handleModel"
+
 @implementation FileManagerVC
 
 - (void)dealloc {
     NSLog(@"FileManagerVC -> dealloc");
+    [[WilsonWebServer sharedManager] removeObserver:self forKeyPath:ObserverKeyPath];
 }
 
 - (void)viewDidLoad {
@@ -74,14 +77,21 @@
     self.handleModel = webServer.handleModel;
     
     // iOS 设计模式思考：多个vc或对象监听单例中某个值的改变
-    
+    [webServer addObserver:self forKeyPath:ObserverKeyPath options:NSKeyValueObservingOptionNew context:nil];
     
     [webServer webServerLoadPathData];
 }
 
-#pragma mark - WilsonFileModelDelegate
+#pragma mark - Oberver
 
-
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context {
+    if ([keyPath isEqualToString:ObserverKeyPath] && [object isKindOfClass:[WilsonWebServer class]]) {
+        id model =[change objectForKey:NSKeyValueChangeNewKey];
+        NSLog(@"----%@---",model);
+    } else {
+        [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
+    }
+}
 
 #pragma mark - WilsonWebServerDelegate
 
