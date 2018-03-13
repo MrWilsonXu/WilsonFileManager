@@ -86,11 +86,53 @@
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context {
     if ([keyPath isEqualToString:ObserverKeyPath] && [object isKindOfClass:[WilsonWebServer class]]) {
-        id model =[change objectForKey:NSKeyValueChangeNewKey];
-        NSLog(@"----%@---",model);
+        WilsonFileModel *model = (WilsonFileModel *)[change objectForKey:NSKeyValueChangeNewKey];
+        [self updateDataSouceWithFileModel:model];
     } else {
         [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
     }
+}
+
+- (void)updateDataSouceWithFileModel:(WilsonFileModel *)fileModel {
+    
+    if ([self currentPathWithUpperFilePath:fileModel.upperFilePath]) {
+        
+        if (fileModel.handleType == HandleDELETE) {
+            
+            WilsonFileModel *queryModel = [self queryModelWithPath:fileModel.handLePath];
+            if (queryModel) {
+                [self.dataSource removeObject:queryModel];
+            }
+            
+        } else if (fileModel.handleType == HandleMOVE) {
+            
+        } else {
+            if (fileModel) {
+                [self.dataSource addObject:fileModel];
+            }
+        }
+        
+        [self.tableView reloadData];
+    }
+    
+}
+
+- (BOOL)currentPathWithUpperFilePath:(NSString *)upperFilePath {
+    if ([self.filePath isEqualToString:upperFilePath]) {
+        return YES;
+    }
+    return NO;
+}
+
+- (WilsonFileModel *)queryModelWithPath:(NSString *)path {
+    NSPredicate *predict = [NSPredicate predicateWithFormat:@"handLePath = %@",path];
+    NSArray *results = [self.dataSource filteredArrayUsingPredicate:predict];
+    if (results.count > 0) {
+        WilsonFileModel *model = results.firstObject;
+        return model;
+    }
+    
+    return nil;
 }
 
 #pragma mark - WilsonWebServerDelegate
@@ -124,8 +166,24 @@
     FileManagerCell *cell = [tableView dequeueReusableCellWithIdentifier:CellReuse];
     cell.titleContent = model.fileName;
     cell.timeContent = model.createDate;
-    cell.imgStr = @"audio_cover";
     cell.sizeContent = model.fileSize;
+    
+    NSString *imgStr;
+    if (model.fileType == WilonFileTypeFolder) {
+        imgStr = @"ico_floder";
+    } else if (model.fileType == WilonFileTypeImage) {
+        imgStr = @"ico_img";
+    } else if (model.fileType == WilonFileTypeAudio) {
+        imgStr = @"ico_audio";
+    } else if (model.fileType == WilonFileTypeVideo) {
+        imgStr = @"ico_video";
+    } else if (model.fileType == WilonFileTypeDocument) {
+        imgStr = @"ico_document";
+    } else if (model.fileType == WilonFileTypeUrl) {
+        imgStr = @"ico_url";
+    }
+        
+    cell.imgStr = imgStr;
     return cell;
 }
 
