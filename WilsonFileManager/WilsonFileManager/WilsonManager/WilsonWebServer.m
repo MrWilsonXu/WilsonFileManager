@@ -124,6 +124,7 @@ static WilsonWebServer *_wilsonWebServe = nil;
     model.fileSize = [NSFileManager fileSizeWithPath:handlePath];
     model.fileType = [NSFileManager fileTypeWithPath:handlePath];
     model.createDate = [NSFileManager fileCreateTimeWithPath:handlePath];
+    model.fileNums = [NSFileManager subpathsOfDirectoryWithPath:handlePath].count;
     return model;
 }
 

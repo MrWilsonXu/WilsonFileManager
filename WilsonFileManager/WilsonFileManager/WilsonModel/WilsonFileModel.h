@@ -22,6 +22,8 @@
 
 @property (assign, nonatomic) BOOL showDetail;
 
+@property (nonatomic, assign) NSUInteger fileNums;
+
 @property (assign, nonatomic) WilonFileType fileType;
 
 @property (assign, nonatomic) HandleType handleType;

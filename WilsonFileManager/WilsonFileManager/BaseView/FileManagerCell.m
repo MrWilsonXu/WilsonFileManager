@@ -15,21 +15,11 @@
 @property (strong, nonatomic) UILabel *timeLab;
 @property (strong, nonatomic) UILabel *fileSizeLab;
 @property (strong, nonatomic) UIImageView *moreImgView;
+@property (nonatomic, strong) UILabel *fileNumber;
 
 @end
 
 @implementation FileManagerCell
-
-- (void)awakeFromNib {
-    [super awakeFromNib];
-    // Initialization code
-}
-
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
-}
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
@@ -62,6 +52,16 @@
     }
 }
 
+- (void)setFileNums:(NSUInteger)fileNums {
+    _fileNums = fileNums;
+    if (_fileNums > 0) {
+        self.fileNumber.hidden = NO;
+        self.fileNumber.text = [NSString stringWithFormat:@"%lu个文件",(unsigned long)_fileNums];
+    } else {
+        self.fileNumber.hidden = YES;
+    }
+}
+
 #pragma mark - View
 
 - (void)customSubviews {
@@ -72,6 +72,7 @@
     [self.contentView addSubview:self.timeLab];
     [self.contentView addSubview:self.fileSizeLab];
     [self.contentView addSubview:self.moreImgView];
+    [self.contentView addSubview:self.fileNumber];
     
     [self layoutCustomViews];
 }
@@ -98,8 +99,15 @@
     }];
     
     [self.fileSizeLab mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.titleLab.mas_bottom).offset(5);
+        make.top.equalTo(self.titleLab.mas_top).offset(5);
         make.width.mas_equalTo(60);
+        make.right.equalTo(self.moreImgView.mas_left).offset(0);
+        make.height.mas_equalTo(15);
+    }];
+    
+    [self.fileNumber mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.titleLab.mas_bottom).offset(5);
+        make.width.mas_equalTo(120);
         make.right.equalTo(self.moreImgView.mas_left).offset(0);
         make.height.mas_equalTo(15);
     }];
@@ -164,6 +172,17 @@
     return _timeLab;
 }
 
+- (UILabel *)fileNumber {
+    if (!_fileNumber) {
+        self.fileNumber = [[UILabel alloc] init];
+        _fileNumber.font = [UIFont systemFontOfSize:12];
+        _fileNumber.textColor = kSubTitleColor;
+        _fileNumber.textAlignment = NSTextAlignmentRight;
+        _fileNumber.hidden = YES;
+    }
+    return _fileNumber;
+}
+
 - (UILabel *)fileSizeLab {
     if (!_fileSizeLab) {
         self.fileSizeLab = [[UILabel alloc] init];
@@ -179,6 +198,7 @@
         self.moreImgView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"ico_down"]];
         _moreImgView.contentMode = UIViewContentModeScaleAspectFit;
         _moreImgView.userInteractionEnabled = YES;
+        _moreImgView.hidden = YES;
         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapArrowImgView:)];
         [_moreImgView addGestureRecognizer:tap];
     }

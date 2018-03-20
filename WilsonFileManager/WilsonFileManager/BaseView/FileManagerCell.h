@@ -15,5 +15,6 @@
 @property (copy, nonatomic) NSString *timeContent;
 @property (copy, nonatomic) NSString *sizeContent;
 @property (copy, nonatomic) NSString *imgStr;
+@property (nonatomic, assign) NSUInteger fileNums;
 
 @end

@@ -93,6 +93,14 @@
     return @"";
 }
 
++ (BOOL)deleteSuccessFileAtPath:(NSString *)path {
+    if ([[self defaultManager] fileExistsAtPath:path]) {
+        return [[self defaultManager] removeItemAtPath:path error:nil];
+    } else {
+        return NO;
+    }
+}
+
 #pragma mark - Common
 
 + (NSString *)emptyContent {
@@ -118,7 +126,7 @@
         multiplyFactor++;
     }
     
-    NSString *sizeFormat = ((multiplyFactor > 1) ? @"%.f %@" : @"%.0f %@");
+    NSString *sizeFormat = ((multiplyFactor > 1) ? @"%.2f %@" : @"%.0f %@");
     return [NSString stringWithFormat:sizeFormat, convertedValue, tokens[multiplyFactor]];
 }
 

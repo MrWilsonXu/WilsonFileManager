@@ -117,6 +117,9 @@
     
 }
 
+/**
+ *  操作文件是否在当前vc目录下
+ */
 - (BOOL)currentPathWithUpperFilePath:(NSString *)upperFilePath {
     if ([self.filePath isEqualToString:upperFilePath]) {
         return YES;
@@ -167,6 +170,9 @@
     cell.titleContent = model.fileName;
     cell.timeContent = model.createDate;
     cell.sizeContent = model.fileSize;
+    if (model.fileNums > 0) {
+        cell.fileNums = model.fileNums;
+    }
     
     NSString *imgStr;
     if (model.fileType == WilonFileTypeFolder) {
@@ -203,6 +209,20 @@
         WilsonWebVC *webVC = [[WilsonWebVC alloc] init];
         webVC.webUrl = url;
         [self.navigationController pushViewController:webVC animated:YES];
+    }
+}
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    return YES;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        WilsonFileModel *model = self.dataSource[indexPath.row];
+        if ([NSFileManager deleteSuccessFileAtPath:model.handLePath]) {
+            [self.dataSource removeObject:model];
+            [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+        }
     }
 }
 

@@ -18,7 +18,8 @@
 + (NSString *)fileSizeWithPath:(NSString *)path;
 + (NSString *)upperFilePathWithPath:(NSString *)path;
 + (WilonFileType)fileTypeWithPath:(NSString *)path;
-
 + (NSString *)fileAtDocumentDirectoryPathName:(NSString *)pathName;
+
++ (BOOL)deleteSuccessFileAtPath:(NSString *)path;
 
 @end
