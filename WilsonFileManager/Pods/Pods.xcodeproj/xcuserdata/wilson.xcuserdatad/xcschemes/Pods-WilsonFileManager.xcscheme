@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'AAEDE267D4D83E36E578500EB874A2D2'
+               BlueprintIdentifier = '21D06AC3DA6B2F30FA56214977B26B05'
                BlueprintName = 'Pods-WilsonFileManager'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'libPods-WilsonFileManager.a'>

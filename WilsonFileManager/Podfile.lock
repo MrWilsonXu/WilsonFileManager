@@ -6,6 +6,7 @@ PODS:
     - GCDWebServer/Core
   - Masonry (1.1.0)
   - MJExtension (3.0.13)
+  - WilsonDiary (0.0.5)
 
 DEPENDENCIES:
   - GCDWebServer/Core (~> 3.4.2)
@@ -13,12 +14,14 @@ DEPENDENCIES:
   - GCDWebServer/WebUploader (~> 3.4.2)
   - Masonry (~> 1.1.0)
   - MJExtension (~> 3.0.13)
+  - WilsonDiary (~> 0.0.5)
 
 SPEC CHECKSUMS:
   GCDWebServer: 8d67ee9f634b4bb91eb4b8aee440318a5fc6debd
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MJExtension: 5932755f451458eefa24239358817f8d291240c7
+  WilsonDiary: 93ac8ec192cd893c4ae76e7b8eb713ab14612953
 
-PODFILE CHECKSUM: db19cbad3ecb41d94eefeb42b5cb92524773c67a
+PODFILE CHECKSUM: 57eeecca2ee6c3367b59655481c02f8a6fa232e7
 
 COCOAPODS: 1.4.0
