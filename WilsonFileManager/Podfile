@@ -11,6 +11,7 @@ target 'WilsonFileManager' do
   pod 'GCDWebServer/Core', '~> 3.4.2'
   pod 'GCDWebServer/WebDAV', '~> 3.4.2'
   pod 'MJExtension', '~> 3.0.13'
+  pod 'WilsonDiary', '~> 0.0.5'
 
   target 'WilsonFileManagerTests' do
     inherit! :search_paths
