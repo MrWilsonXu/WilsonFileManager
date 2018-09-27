@@ -9,6 +9,7 @@
 #import "FileManagerVC.h"
 #import "WilsonPreviewVC.h"
 #import "WilsonWebVC.h"
+#import "CommonVC.h"
 
 #import "FileManagerCell.h"
 #import "WilsonWebServer.h"
@@ -40,6 +41,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self setupUI];
+    [self setupWebserve];
+}
+
+- (void)setupUI {
     self.title = @"File Manager";
     
     self.edgesForExtendedLayout = UIRectEdgeNone;
@@ -50,7 +56,7 @@
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self.view);
     }];
-
+    
     [self.IPAdress mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(15);
         make.right.mas_equalTo(0);
@@ -58,6 +64,10 @@
         make.height.mas_equalTo(20);
     }];
     
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"跳转" style:UIBarButtonItemStylePlain target:self action:@selector(pushToVC)];
+}
+
+- (void)setupWebserve {
     WilsonWebServer *webServer = [WilsonWebServer sharedManager];
     webServer.delegate = self;
     NSString *mainFilePath = [NSFileManager fileAtDocumentDirectoryPathName:@"Wilson"];
@@ -73,13 +83,19 @@
         webServer.filePath = mainFilePath;
         self.filePath = mainFilePath;
     }
-
+    
     self.handleModel = webServer.handleModel;
     
     // iOS 设计模式思考：多个vc或对象监听单例中某个值的改变
     [webServer addObserver:self forKeyPath:ObserverKeyPath options:NSKeyValueObservingOptionNew context:nil];
     
     [webServer webServerLoadPathData];
+}
+
+#pragma mark - 界面跳转
+- (void)pushToVC {
+    CommonVC *vc = [[CommonVC alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 #pragma mark - Oberver
